@@ -92,9 +92,8 @@
 	import InputVariablesModal from './MessageInput/InputVariablesModal.svelte';
 	import Voice from '../icons/Voice.svelte';
 	import Terminal from '../icons/Terminal.svelte';
-	import IntegrationsMenu from './MessageInput/IntegrationsMenu.svelte';
 	import TerminalMenu from './MessageInput/TerminalMenu.svelte';
-	import Component from '../icons/Component.svelte';
+	import VariantMenu from './MessageInput/VariantMenu.svelte';
 	import PlusAlt from '../icons/PlusAlt.svelte';
 	import Dropdown from '../common/Dropdown.svelte';
 
@@ -158,6 +157,8 @@
 	export let webSearchEnabled = false;
 	export let codeInterpreterEnabled = false;
 
+	export let params: any = {};
+
 	export let pendingOAuthTools = [];
 
 	let showTerminalMenu = false;
@@ -181,11 +182,6 @@
 	let copiedStatusChatId = false;
 	let selectedValvesType = 'tool'; // 'tool' or 'function'
 	let selectedValvesItemId = null;
-	let integrationsMenuCloseOnOutsideClick = true;
-
-	$: if (!showValvesModal) {
-		integrationsMenuCloseOnOutsideClick = true;
-	}
 
 	$: onChange({
 		prompt,
@@ -664,12 +660,6 @@
 	$: toggleFilters = (atSelectedModel?.id ? [atSelectedModel.id] : selectedModels)
 		.map((id) => ($models.find((model) => model.id === id) || {})?.filters ?? [])
 		.reduce((acc, filters) => acc.filter((f1) => filters.some((f2) => f2.id === f1.id)));
-
-	let showToolsButton = false;
-	$: showToolsButton = ($tools ?? []).length > 0 || ($toolServers ?? []).length > 0;
-
-	let showSkillsButton = false;
-	$: showSkillsButton = ($skills ?? []).some((skill) => skill.is_active);
 
 	let showWebSearchButton = false;
 	$: showWebSearchButton =
@@ -1356,9 +1346,6 @@
 	on:save={async () => {
 		await tick();
 	}}
-	on:close={() => {
-		integrationsMenuCloseOnOutsideClick = true;
-	}}
 />
 
 <InputModal
@@ -1971,52 +1958,20 @@
 										</button>
 									</InputMenu>
 
-									{#if showWebSearchButton || showImageGenerationButton || showCodeInterpreterButton || showToolsButton || showSkillsButton || (toggleFilters && toggleFilters.length > 0)}
-										<div
-											class="flex self-center w-[1px] h-4 mx-1 bg-gray-200/50 dark:bg-gray-800/50 shrink-0"
-										/>
-									{/if}
+									<div
+										class="flex self-center w-[1px] h-4 mx-1 bg-gray-200/50 dark:bg-gray-800/50 shrink-0"
+									/>
 
 									<div class="flex flex-1 items-center min-w-0 overflow-x-auto scrollbar-none">
-										{#if showWebSearchButton || showImageGenerationButton || showCodeInterpreterButton || showToolsButton || showSkillsButton || (toggleFilters && toggleFilters.length > 0)}
-											<IntegrationsMenu
-												selectedModels={selectedModelIds}
-												{toggleFilters}
-												{showWebSearchButton}
-												{showImageGenerationButton}
-												{showCodeInterpreterButton}
-												bind:selectedToolIds
-												bind:selectedSkillIds
-												bind:selectedFilterIds
-												bind:webSearchEnabled
-												bind:imageGenerationEnabled
-												bind:codeInterpreterEnabled
-												{onWebSearchToggle}
-												closeOnOutsideClick={integrationsMenuCloseOnOutsideClick}
-												onShowValves={(e) => {
-													const { type, id } = e;
-													selectedValvesType = type;
-													selectedValvesItemId = id;
-													showValvesModal = true;
-													integrationsMenuCloseOnOutsideClick = false;
-												}}
-												onClose={async () => {
-													await tick();
+										<VariantMenu
+											bind:params
+											onClose={async () => {
+												await tick();
 
-													const chatInput = document.getElementById('chat-input');
-													chatInput?.focus();
-												}}
-											>
-												<button
-													type="button"
-													id="integration-menu-button"
-													class="bg-transparent hover:bg-gray-100 text-gray-700 dark:text-white dark:hover:bg-white/[0.08] rounded-full size-[1.875rem] flex justify-center items-center outline-hidden focus:outline-hidden shrink-0"
-													aria-label={$i18n.t('Integrations')}
-												>
-													<Component className="size-4.5" strokeWidth="1.5" />
-												</button>
-											</IntegrationsMenu>
-										{/if}
+												const chatInput = document.getElementById('chat-input');
+												chatInput?.focus();
+											}}
+										/>
 
 										{#if selectedModelIds.length === 1 && $models.find((m) => m.id === selectedModelIds[0])?.has_user_valves}
 											<div class="ml-1 flex gap-1.5 shrink-0">
@@ -2147,7 +2102,10 @@
 											{#if webSearchEnabled}
 												<Tooltip content={$i18n.t('Web Search')} placement="top">
 													<button
-														on:click|preventDefault={() => (webSearchEnabled = !webSearchEnabled)}
+														on:click|preventDefault={() => {
+															webSearchEnabled = !webSearchEnabled;
+															onWebSearchToggle(webSearchEnabled);
+														}}
 														type="button"
 														class="group p-[6px] flex gap-1.5 items-center text-sm rounded-full transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden {webSearchEnabled ||
 														($settings?.webSearch ?? false) === 'always'

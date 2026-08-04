@@ -3980,6 +3980,7 @@
 										{stopResponse}
 										{createMessagePair}
 										{onUpload}
+										bind:params
 										messageQueue={$chatRequestQueues[$chatId] ?? []}
 										{chatTasks}
 										onQueueSendNow={async (id) => {
@@ -4099,6 +4100,7 @@
 										{stopResponse}
 										{createMessagePair}
 										{onUpload}
+										bind:params
 										messageQueue={$chatRequestQueues[$chatId] ?? []}
 										{chatTasks}
 										onWebSearchToggle={handleWebSearchToggle}
