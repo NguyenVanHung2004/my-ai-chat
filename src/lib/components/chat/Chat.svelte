@@ -2750,16 +2750,6 @@
 			}
 		}
 
-		if (history?.currentId) {
-			const currentMessage = history.messages[history.currentId];
-
-			if (currentMessage.error && !currentMessage.content) {
-				// Error in response
-				toast.error($i18n.t(`Oops! There was an error in the previous response.`));
-				return;
-			}
-		}
-
 		// Clear input and submit
 		messageInput?.setText('');
 		prompt = '';
