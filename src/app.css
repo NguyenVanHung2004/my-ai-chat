@@ -1061,14 +1061,25 @@ html.high-contrast:not(.dark) .shimmer {
 
 /* ---- selected chat item ---- */
 .chat-item-active {
-	background: linear-gradient(90deg, rgba(139, 92, 246, 0.14), rgba(139, 92, 246, 0.04)) !important;
-	border-color: rgba(139, 92, 246, 0.3) !important;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+	background: linear-gradient(90deg, rgba(139, 92, 246, 0.22), rgba(139, 92, 246, 0.07)) !important;
+	border-color: rgba(139, 92, 246, 0.5) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75) !important;
+}
+
+.chat-item-active::before {
+	content: '';
+	position: absolute;
+	left: 2px;
+	top: 18%;
+	bottom: 18%;
+	width: 3px;
+	border-radius: 9999px;
+	background: linear-gradient(180deg, #8b5cf6, #a78bfa);
 }
 
 .dark .chat-item-active {
-	background: linear-gradient(90deg, rgba(167, 139, 250, 0.18), rgba(167, 139, 250, 0.05)) !important;
-	border-color: rgba(167, 139, 250, 0.32) !important;
+	background: linear-gradient(90deg, rgba(167, 139, 250, 0.2), rgba(167, 139, 250, 0.06)) !important;
+	border-color: rgba(167, 139, 250, 0.4) !important;
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
 }
 
