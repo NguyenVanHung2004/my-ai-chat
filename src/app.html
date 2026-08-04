@@ -44,34 +44,58 @@
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 			(() => {
 				const metaThemeColorTag = document.querySelector('meta[name="theme-color"]');
-				const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-				if (!localStorage?.theme || localStorage.theme === 'system') {
-					localStorage.theme = 'dark';
+				const theme = localStorage?.theme || 'dark';
+
+				let themeClass;
+				let metaColor;
+
+				if (theme === 'light') {
+					themeClass = 'light';
+					metaColor = '#ffffff';
+				} else if (theme === 'her') {
+					themeClass = 'her';
+					metaColor = '#983724';
+				} else if (theme === 'oled-dark') {
+					themeClass = 'dark';
+					metaColor = '#000000';
+				} else if (theme === 'system') {
+					const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+					themeClass = isDark ? 'dark' : 'light';
+					metaColor = isDark ? '#06060a' : '#ffffff';
+				} else {
+					themeClass = 'dark';
+					metaColor = '#06060a';
 				}
 
-				// Always render dark: the app is designed around a dark liquid-glass theme.
-				// (The in-app theme picker can still preview light mode for the current session.)
-				document.documentElement.classList.add('dark');
-				document.documentElement.classList.remove('light');
+				['dark', 'light', 'her'].forEach((cls) =>
+					document.documentElement.classList.remove(cls)
+				);
+				document.documentElement.classList.add(themeClass);
 
-				if (localStorage.theme === 'oled-dark') {
+				if (theme === 'oled-dark') {
 					document.documentElement.style.setProperty('--color-gray-800', '#101010');
 					document.documentElement.style.setProperty('--color-gray-850', '#050505');
 					document.documentElement.style.setProperty('--color-gray-900', '#000000');
 					document.documentElement.style.setProperty('--color-gray-950', '#000000');
-					metaThemeColorTag.setAttribute('content', '#000000');
-				} else if (localStorage.theme === 'her') {
-					document.documentElement.classList.add('her');
-					metaThemeColorTag.setAttribute('content', '#983724');
-				} else {
-					metaThemeColorTag.setAttribute('content', '#06060a');
+				} else if (themeClass === 'dark') {
+					document.documentElement.style.setProperty('--color-gray-800', '#333');
+					document.documentElement.style.setProperty('--color-gray-850', '#262626');
+					document.documentElement.style.setProperty('--color-gray-900', '#171717');
+					document.documentElement.style.setProperty('--color-gray-950', '#0d0d0d');
 				}
 
-				window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
-					document.documentElement.classList.add('dark');
-					document.documentElement.classList.remove('light');
-					metaThemeColorTag.setAttribute('content', '#06060a');
+				metaThemeColorTag.setAttribute('content', metaColor);
+
+				window.matchMedia('(prefers-color-scheme: dark)').addListener(() => {
+					if (localStorage.theme !== 'system') return;
+
+					const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+					['dark', 'light', 'her'].forEach((cls) =>
+						document.documentElement.classList.remove(cls)
+					);
+					document.documentElement.classList.add(isDark ? 'dark' : 'light');
+					metaThemeColorTag.setAttribute('content', isDark ? '#06060a' : '#ffffff');
 				});
 			})();
 		</script>
