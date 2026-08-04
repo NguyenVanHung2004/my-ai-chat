@@ -505,12 +505,12 @@
 			id="sidebar-chat-item"
 			class=" w-full flex justify-between rounded-xl px-2 py-[6px] {id === $chatId || confirmEdit
 				? ($settings?.highContrastMode ?? false)
-					? 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-					: 'bg-black/[0.035] chat-item-active dark:border dark:border-white/[0.14] selected'
+					? 'chat-item-active dark:border dark:border-white/[0.14] selected'
+					: 'chat-item-active dark:border dark:border-white/[0.14] selected'
 				: selected
 					? ($settings?.highContrastMode ?? false)
-						? 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-						: 'bg-black/[0.035] chat-item-active dark:border dark:border-white/[0.14] selected'
+						? 'chat-item-active dark:border dark:border-white/[0.14] selected'
+						: 'chat-item-active dark:border dark:border-white/[0.14] selected'
 					: 'hover:bg-gray-200/60 dark:hover:bg-white/[0.08] group-hover:bg-gray-200/60 dark:group-hover:bg-white/[0.08]'}  whitespace-nowrap text-ellipsis relative transition {generating
 				? 'cursor-not-allowed'
 				: ''}"
@@ -550,12 +550,12 @@
 				id="sidebar-chat-item"
 				class=" w-full flex justify-between rounded-xl px-2 py-[6px] {id === $chatId || confirmEdit
 					? ($settings?.highContrastMode ?? false)
-						? 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-						: 'bg-black/[0.035] chat-item-active dark:border dark:border-white/[0.14] selected'
+						? 'chat-item-active dark:border dark:border-white/[0.14] selected'
+						: 'chat-item-active dark:border dark:border-white/[0.14] selected'
 					: selected
 						? ($settings?.highContrastMode ?? false)
-							? 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-							: 'bg-black/[0.035] chat-item-active dark:border dark:border-white/[0.14] selected'
+							? 'chat-item-active dark:border dark:border-white/[0.14] selected'
+							: 'chat-item-active dark:border dark:border-white/[0.14] selected'
 						: ' hover:bg-gray-200/60 dark:hover:bg-white/[0.08] group-hover:bg-gray-200/60 dark:group-hover:bg-white/[0.08]'}  whitespace-nowrap text-ellipsis relative transition"
 				href="/c/{id}"
 				aria-current={id === $chatId ? 'page' : undefined}
