@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+﻿<script context="module" lang="ts">
 	let savedTab: 'controls' | 'files' | 'overview' = 'controls';
 </script>
 
@@ -280,7 +280,7 @@
 		<Drawer
 			show={$showControls}
 			onClose={() => showControls.set(false)}
-			className="min-h-[100dvh] !bg-white/80 dark:!bg-[#08080f]/80 backdrop-blur-3xl"
+			className="min-h-[100dvh] !bg-white/80 dark:!bg-[#06060a]/80 backdrop-blur-3xl"
 		>
 			<div class="h-[100dvh] flex flex-col">
 				{#if $showCallOverlay}

@@ -722,21 +722,23 @@ html.high-contrast.dark .ProseMirror p.is-editor-empty:first-child::before {
 }
 
 body {
-	background-color: #f6f6fb;
+	background-color: #f2f2f7;
 	background-image:
-		radial-gradient(ellipse 70% 45% at 50% -15%, rgba(139, 92, 246, 0.09), transparent 70%),
-		radial-gradient(ellipse 50% 35% at 85% 110%, rgba(34, 211, 238, 0.07), transparent 70%);
+		radial-gradient(ellipse 80% 50% at 20% -10%, rgba(139, 92, 246, 0.18), transparent 62%),
+		radial-gradient(ellipse 60% 40% at 92% 15%, rgba(56, 189, 248, 0.13), transparent 60%),
+		radial-gradient(ellipse 70% 50% at 60% 110%, rgba(217, 70, 239, 0.09), transparent 60%);
 	background-attachment: fixed;
-	color: #000;
+	color: #1d1d1f;
 }
 
 .dark body {
-	background-color: #08080f;
+	background-color: #06060a;
 	background-image:
-		radial-gradient(ellipse 70% 45% at 50% -15%, rgba(124, 58, 237, 0.14), transparent 70%),
-		radial-gradient(ellipse 50% 35% at 85% 110%, rgba(34, 211, 238, 0.07), transparent 70%);
+		radial-gradient(ellipse 80% 50% at 20% -10%, rgba(124, 58, 237, 0.2), transparent 62%),
+		radial-gradient(ellipse 60% 40% at 92% 15%, rgba(56, 189, 248, 0.11), transparent 60%),
+		radial-gradient(ellipse 70% 50% at 60% 110%, rgba(168, 85, 247, 0.11), transparent 60%);
 	background-attachment: fixed;
-	color: #eee;
+	color: #f5f5f7;
 }
 
 /* Position the handle relative to each LI */
@@ -928,129 +930,188 @@ html.high-contrast:not(.dark) .shimmer {
 }
 
 /* ============================================
-   Refined glass design system (custom)
-   Subtle, restrained, single violet accent
+   Liquid Glass design system (custom)
+   Inspired by Apple HIG / iOS 26 Liquid Glass:
+   blur + saturation, specular top highlight,
+   soft depth shadow, thin border, both modes.
    ============================================ */
 :root {
 	--accent: #a78bfa;
 	--accent-strong: #8b5cf6;
 	--accent-glow: rgba(167, 139, 250, 0.22);
+	--glass-radius: 18px;
 }
 
-/* ---- generic glass surfaces ---- */
+/* ---- generic liquid glass surfaces ---- */
 .glass {
-	background: rgba(255, 255, 255, 0.6);
-	backdrop-filter: blur(28px) saturate(140%);
-	-webkit-backdrop-filter: blur(28px) saturate(140%);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+	-webkit-backdrop-filter: blur(32px) saturate(180%);
+	backdrop-filter: blur(32px) saturate(180%);
 	border: 1px solid rgba(255, 255, 255, 0.8);
-	border-radius: 16px;
+	border-radius: var(--glass-radius);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.9),
+		inset 0 -1px 0 rgba(0, 0, 0, 0.02),
+		0 12px 32px rgba(50, 30, 110, 0.08);
 }
 
 .glass-strong {
-	background: rgba(255, 255, 255, 0.72);
-	backdrop-filter: blur(32px) saturate(150%);
-	-webkit-backdrop-filter: blur(32px) saturate(150%);
-	border: 1px solid rgba(255, 255, 255, 0.85);
-	border-radius: 16px;
-	box-shadow: 0 12px 40px rgba(60, 40, 120, 0.1);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.55));
+	-webkit-backdrop-filter: blur(40px) saturate(190%);
+	backdrop-filter: blur(40px) saturate(190%);
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	border-radius: var(--glass-radius);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 1),
+		inset 0 -1px 0 rgba(0, 0, 0, 0.03),
+		0 20px 48px rgba(50, 30, 110, 0.12);
 }
 
 .dark .glass {
-	background: rgba(255, 255, 255, 0.04);
-	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.16),
+		0 16px 48px rgba(0, 0, 0, 0.45);
 }
 
 .dark .glass-strong {
-	background: rgba(255, 255, 255, 0.07);
-	border: 1px solid rgba(255, 255, 255, 0.11);
-	box-shadow: none;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.2),
+		0 20px 56px rgba(0, 0, 0, 0.5);
 }
 
-/* ---- sidebar ---- */
+/* ---- sidebar (full-height glass pane) ---- */
 .sidebar-glass {
-	background: rgba(255, 255, 255, 0.65);
-	backdrop-filter: blur(40px) saturate(140%);
-	-webkit-backdrop-filter: blur(40px) saturate(140%);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.3));
+	-webkit-backdrop-filter: blur(50px) saturate(180%);
+	backdrop-filter: blur(50px) saturate(180%);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.85),
+		inset 8px 0 24px -12px rgba(50, 30, 110, 0.06);
 }
 
 .dark .sidebar-glass {
-	background: rgba(9, 9, 16, 0.55);
+	background: linear-gradient(180deg, rgba(14, 14, 24, 0.5), rgba(8, 8, 15, 0.6));
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.08),
+		inset 8px 0 24px -12px rgba(0, 0, 0, 0.4);
 }
 
-/* ---- chat input (clean glass + focus ring) ---- */
+/* ---- navbar (floating liquid pill) ---- */
+.navbar-glass {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.5));
+	-webkit-backdrop-filter: blur(40px) saturate(180%);
+	backdrop-filter: blur(40px) saturate(180%);
+	border: 1px solid rgba(255, 255, 255, 0.85);
+	border-radius: 16px;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.95),
+		0 8px 24px rgba(50, 30, 110, 0.08);
+}
+
+.dark .navbar-glass {
+	background: linear-gradient(180deg, rgba(14, 14, 24, 0.55), rgba(8, 8, 15, 0.4));
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.14),
+		0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ---- chat input (liquid glass + focus ring) ---- */
 .input-glass {
-	background: rgba(255, 255, 255, 0.72);
-	border: 1px solid rgba(0, 0, 0, 0.06);
-	backdrop-filter: blur(24px) saturate(140%);
-	-webkit-backdrop-filter: blur(24px) saturate(140%);
-	border-radius: 18px;
-	box-shadow: 0 4px 24px rgba(60, 40, 120, 0.07);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.5));
+	-webkit-backdrop-filter: blur(40px) saturate(180%);
+	backdrop-filter: blur(40px) saturate(180%);
+	border: 1px solid rgba(255, 255, 255, 0.85);
+	border-radius: 20px;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.95),
+		0 12px 40px rgba(50, 30, 110, 0.1);
 	transition:
 		border-color 180ms ease,
 		box-shadow 180ms ease;
 }
 
 .input-glass:focus-within {
-	border-color: rgba(139, 92, 246, 0.45);
+	border-color: rgba(139, 92, 246, 0.5);
 	box-shadow:
-		0 0 0 3px rgba(139, 92, 246, 0.12),
-		0 4px 24px rgba(60, 40, 120, 0.07);
+		inset 0 1px 0 rgba(255, 255, 255, 0.95),
+		0 0 0 4px rgba(139, 92, 246, 0.14),
+		0 12px 40px rgba(50, 30, 110, 0.1);
 }
 
 .dark .input-glass {
-	background: rgba(255, 255, 255, 0.05);
-	border: 1px solid rgba(255, 255, 255, 0.09);
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.15),
+		0 16px 48px rgba(0, 0, 0, 0.45);
 }
 
 .dark .input-glass:focus-within {
 	border-color: rgba(167, 139, 250, 0.55);
 	box-shadow:
-		0 0 0 3px rgba(167, 139, 250, 0.16),
-		0 8px 32px rgba(0, 0, 0, 0.35);
+		inset 0 1px 0 rgba(255, 255, 255, 0.15),
+		0 0 0 4px rgba(167, 139, 250, 0.18),
+		0 16px 48px rgba(0, 0, 0, 0.45);
 }
 
 /* ---- selected chat item ---- */
 .chat-item-active {
-	background: rgba(139, 92, 246, 0.08) !important;
-	border-color: rgba(139, 92, 246, 0.25) !important;
+	background: linear-gradient(90deg, rgba(139, 92, 246, 0.14), rgba(139, 92, 246, 0.04)) !important;
+	border-color: rgba(139, 92, 246, 0.3) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
 }
 
 .dark .chat-item-active {
-	background: rgba(167, 139, 250, 0.13) !important;
-	border-color: rgba(167, 139, 250, 0.28) !important;
+	background: linear-gradient(90deg, rgba(167, 139, 250, 0.18), rgba(167, 139, 250, 0.05)) !important;
+	border-color: rgba(167, 139, 250, 0.32) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
 }
 
 /* ---- new chat pill ---- */
 .new-chat-pill {
-	background: rgba(139, 92, 246, 0.07);
-	border: 1px solid rgba(139, 92, 246, 0.22);
+	background: linear-gradient(90deg, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.04));
+	border: 1px solid rgba(139, 92, 246, 0.26);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .new-chat-pill:hover {
-	background: rgba(139, 92, 246, 0.13);
-	border-color: rgba(139, 92, 246, 0.38);
+	background: linear-gradient(90deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.08));
+	border-color: rgba(139, 92, 246, 0.42);
 }
 
 .dark .new-chat-pill {
-	background: rgba(167, 139, 250, 0.1);
-	border: 1px solid rgba(167, 139, 250, 0.22);
+	background: linear-gradient(90deg, rgba(167, 139, 250, 0.14), rgba(167, 139, 250, 0.05));
+	border: 1px solid rgba(167, 139, 250, 0.25);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .dark .new-chat-pill:hover {
-	background: rgba(167, 139, 250, 0.18);
-	border-color: rgba(167, 139, 250, 0.36);
+	background: linear-gradient(90deg, rgba(167, 139, 250, 0.24), rgba(167, 139, 250, 0.1));
+	border-color: rgba(167, 139, 250, 0.4);
 }
 
 /* ---- user message bubble ---- */
 .user-bubble {
-	background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.04));
-	border: 1px solid rgba(139, 92, 246, 0.16);
+	background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05));
+	border: 1px solid rgba(139, 92, 246, 0.22);
+	-webkit-backdrop-filter: blur(20px) saturate(160%);
+	backdrop-filter: blur(20px) saturate(160%);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.75),
+		0 4px 16px rgba(60, 40, 120, 0.08);
 }
 
 .dark .user-bubble {
-	background: linear-gradient(135deg, rgba(167, 139, 250, 0.16), rgba(167, 139, 250, 0.06));
-	border: 1px solid rgba(167, 139, 250, 0.22);
+	background: linear-gradient(135deg, rgba(167, 139, 250, 0.18), rgba(167, 139, 250, 0.06));
+	border: 1px solid rgba(167, 139, 250, 0.26);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.13),
+		0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ---- hero title ---- */
@@ -1097,7 +1158,7 @@ html.high-contrast:not(.dark) .shimmer {
 }
 
 .chat-scrollbar::-webkit-scrollbar-thumb {
-	background: rgba(139, 92, 246, 0.4);
+	background: rgba(139, 92, 246, 0.45);
 	border-radius: 9999px;
 }
 
