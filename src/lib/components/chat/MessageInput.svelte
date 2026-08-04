@@ -1584,9 +1584,9 @@
 
 						<div
 							id="message-input-container"
-							class="flex-1 flex flex-col relative w-full rounded-3xl {$temporaryChatEnabled
-								? 'border-dashed border-gray-100 dark:border-white/20'
-								: 'input-glass bg-white/10 border border-gray-100/40'} transition px-0.5 dark:text-gray-100"
+							class="flex-1 flex flex-col relative w-full {$temporaryChatEnabled
+								? 'border-2 border-dashed border-gray-200 dark:border-white/15'
+								: 'input-glass'} transition px-0.5"
 							dir={$settings?.chatDirection ?? 'auto'}
 						>
 							{#if atSelectedModel !== undefined}
@@ -2403,7 +2403,7 @@
 													<button
 														id="send-message-button"
 														class="{!(prompt === '' && files.length === 0) || uploadPending
-															? 'accent-gradient-bg text-white hover:scale-110 hover:shadow-glow '
+															? 'accent-gradient-bg text-white hover:scale-105 hover:brightness-110 '
 															: 'text-white bg-gray-200 dark:text-gray-900 dark:bg-gray-700 disabled'} transition-all rounded-full p-[5px] self-center"
 														type="submit"
 														disabled={(prompt === '' && files.length === 0) || uploadPending}

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { v4 as uuidv4 } from 'uuid';
 	import { toast } from 'svelte-sonner';
 	import { PaneGroup, Pane, PaneResizer } from 'paneforge';
@@ -537,7 +537,7 @@
 	const navigateHandler = async () => {
 		noteChatDebug('navigateHandler start');
 		// Mark the outgoing chat as read before loading the new one.
-		// $chatId still holds the previous chat here — loadChat() updates it.
+		// $chatId still holds the previous chat here â€” loadChat() updates it.
 		if ($chatId && $chatId !== chatIdProp && !$temporaryChatEnabled) {
 			noteChatDebug('marking outgoing chat read', { outgoingChatId: $chatId });
 			updateLastReadAt($chatId);
@@ -839,7 +839,7 @@
 					}
 				}
 
-				// Set Default Terminal — only if the referenced terminal actually exists
+				// Set Default Terminal â€” only if the referenced terminal actually exists
 				if (model?.info?.meta?.terminalId) {
 					const tid = model.info.meta.terminalId;
 					if (isTerminalAvailable(tid)) {
@@ -1024,7 +1024,7 @@
 						scrollToBottom('smooth');
 					}
 				} else if (type === 'chat:outlet') {
-					// Outlet filter ran on backend — sync in-memory state
+					// Outlet filter ran on backend â€” sync in-memory state
 					const outletMessages = data.messages ?? [];
 					for (const msg of outletMessages) {
 						if (msg?.id && history.messages[msg.id]) {
@@ -1887,7 +1887,7 @@
 
 			if (event.type === 'call') {
 				// Defer to next macrotask so the call overlay isn't clobbered by
-				// showControlsSubscribe's initial callback (value=false → set(false))
+				// showControlsSubscribe's initial callback (value=false â†’ set(false))
 				// which runs as a pending microtask after this function.
 				setTimeout(() => {
 					showCallOverlay.set(true);
@@ -2075,7 +2075,7 @@
 					taskIds = pendingTaskIds;
 				} else {
 					taskIds = null;
-					// No active tasks and message incomplete → generation was interrupted
+					// No active tasks and message incomplete â†’ generation was interrupted
 					if (currentMessage?.role === 'assistant' && !currentMessage.done) {
 						currentMessage.done = true;
 					}
@@ -2901,7 +2901,7 @@
 			}
 		}
 
-		// Single request — backend fans out to all models
+		// Single request â€” backend fans out to all models
 		const primaryModelId = selectedModelIds[0];
 		const primaryModel = $models.filter((m) => m.id === primaryModelId).at(0);
 		const primaryResponseMessageId = messageIdsList[0]?.message_id;
@@ -2921,7 +2921,7 @@
 					_chatId,
 					{
 						// Always forward the message_ids list (not just for multi-model sends) so the
-						// backend persists each response's modelIdx — including single-column
+						// backend persists each response's modelIdx â€” including single-column
 						// regenerations in a duplicate-model chat, which would otherwise lose their
 						// column identity and collapse on reload.
 						messageIdsList: messageIdsList.length > 0 ? messageIdsList : undefined,
@@ -3034,7 +3034,7 @@
 			$settings?.params?.stream_response ??
 			params?.stream_response ??
 			true;
-		// Always include system prompt — backend extracts it and prepends to DB messages.
+		// Always include system prompt â€” backend extracts it and prepends to DB messages.
 		// Only temp chats need conversation messages (persisted chats load from DB).
 		let messages: any[] = [
 			params?.system || $settings.system
@@ -3143,7 +3143,7 @@
 					...($toolServers ?? []).filter(
 						(server, idx) => toolServerIds.includes(idx) || toolServerIds.includes(server?.id)
 					),
-					// Direct terminal servers — always included when enabled (not routed through selectedToolIds)
+					// Direct terminal servers â€” always included when enabled (not routed through selectedToolIds)
 					...($terminalServers ?? []).filter((t) => !t.id)
 				],
 				features: getFeatures(),
@@ -3228,7 +3228,7 @@
 					taskIds = [...(taskIds ?? []), ...newTaskIds];
 				}
 
-				// Backend returns chat_id for new chats — set store + URL.
+				// Backend returns chat_id for new chats â€” set store + URL.
 				// Only update if the user hasn't navigated to a different chat
 				// while the request was in flight (prevents overwriting $chatId
 				// and causing spurious toast notifications / state duplication).
@@ -3787,7 +3787,7 @@
 				/>
 
 				<div
-					class="absolute top-0 left-0 w-full h-full bg-linear-to-t from-white to-white/85 dark:from-[#0a0a14] dark:to-[#0a0a14]/85 z-0"
+					class="absolute top-0 left-0 w-full h-full bg-linear-to-t from-white to-white/85 dark:from-[#08080f] dark:to-[#08080f]/85 z-0"
 				/>
 			{:else if !embedded && ($settings?.backgroundImageUrl ?? $config?.license_metadata?.background_image_url ?? null)}
 				<div
@@ -3797,7 +3797,7 @@
 				/>
 
 				<div
-					class="absolute top-0 left-0 w-full h-full bg-linear-to-t from-white to-white/85 dark:from-[#0a0a14] dark:to-[#0a0a14]/85 z-0"
+					class="absolute top-0 left-0 w-full h-full bg-linear-to-t from-white to-white/85 dark:from-[#08080f] dark:to-[#08080f]/85 z-0"
 				/>
 			{/if}
 

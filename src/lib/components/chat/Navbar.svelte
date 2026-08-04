@@ -83,12 +83,12 @@
 		? 'pt-1.5'
 		: 'pt-0.5'} pb-1 -mb-12 flex flex-col items-center drag-region"
 >
-	<div class="flex items-center w-full {$mobile ? 'px-2.5' : 'mx-2 px-1.5 pr-1 rounded-2xl navbar-glass'}">
+	<div class="flex items-center w-full {$mobile ? 'px-2.5' : 'pl-1.5 pr-1'}">
 		<div
 			id="navbar-bg-gradient-to-b"
 			class="{chat?.id
 				? 'visible'
-				: 'invisible'} bg-linear-to-b via-40% to-97% from-white/90 via-white/50 to-transparent dark:from-[#0a0a14]/90 dark:via-[#0a0a14]/45 dark:to-transparent pointer-events-none absolute inset-0 -bottom-10 z-[-1]"
+				: 'invisible'} bg-linear-to-b via-40% to-97% from-white/90 via-white/50 to-transparent dark:from-[#08080f]/85 dark:via-[#08080f]/40 dark:to-transparent pointer-events-none absolute inset-0 -bottom-10 z-[-1]"
 		></div>
 
 		<div class=" flex max-w-full w-full mx-auto bg-transparent">

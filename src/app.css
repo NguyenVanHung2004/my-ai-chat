@@ -722,22 +722,19 @@ html.high-contrast.dark .ProseMirror p.is-editor-empty:first-child::before {
 }
 
 body {
-	background:
-		radial-gradient(1200px 700px at 12% -8%, rgba(124, 58, 237, 0.14) 0px, transparent 62%),
-		radial-gradient(1000px 620px at 88% 2%, rgba(217, 70, 239, 0.1) 0px, transparent 55%),
-		radial-gradient(900px 650px at 78% 105%, rgba(34, 211, 238, 0.12) 0px, transparent 60%),
-		#f7f7fc;
+	background-color: #f6f6fb;
+	background-image:
+		radial-gradient(ellipse 70% 45% at 50% -15%, rgba(139, 92, 246, 0.09), transparent 70%),
+		radial-gradient(ellipse 50% 35% at 85% 110%, rgba(34, 211, 238, 0.07), transparent 70%);
 	background-attachment: fixed;
 	color: #000;
 }
 
 .dark body {
-	background:
-		radial-gradient(1200px 700px at 12% -8%, rgba(124, 58, 237, 0.32) 0px, transparent 62%),
-		radial-gradient(1000px 620px at 88% 2%, rgba(217, 70, 239, 0.24) 0px, transparent 55%),
-		radial-gradient(900px 650px at 78% 105%, rgba(34, 211, 238, 0.2) 0px, transparent 60%),
-		radial-gradient(800px 550px at -2% 96%, rgba(139, 92, 246, 0.18) 0px, transparent 55%),
-		#07070f;
+	background-color: #08080f;
+	background-image:
+		radial-gradient(ellipse 70% 45% at 50% -15%, rgba(124, 58, 237, 0.14), transparent 70%),
+		radial-gradient(ellipse 50% 35% at 85% 110%, rgba(34, 211, 238, 0.07), transparent 70%);
 	background-attachment: fixed;
 	color: #eee;
 }
@@ -931,168 +928,148 @@ html.high-contrast:not(.dark) .shimmer {
 }
 
 /* ============================================
-   Glassmorphism design system (custom)
-   Works in BOTH light and dark mode
+   Refined glass design system (custom)
+   Subtle, restrained, single violet accent
    ============================================ */
 :root {
-	--glass-accent: #8b5cf6;
-	--glass-accent-2: #d946ef;
-	--glass-accent-glow: rgba(139, 92, 246, 0.35);
+	--accent: #a78bfa;
+	--accent-strong: #8b5cf6;
+	--accent-glow: rgba(167, 139, 250, 0.22);
 }
 
 /* ---- generic glass surfaces ---- */
 .glass {
-	background: rgba(255, 255, 255, 0.55);
-	backdrop-filter: blur(24px) saturate(160%);
-	-webkit-backdrop-filter: blur(24px) saturate(160%);
-	border: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.dark .glass {
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
-	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.6);
+	backdrop-filter: blur(28px) saturate(140%);
+	-webkit-backdrop-filter: blur(28px) saturate(140%);
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	border-radius: 16px;
 }
 
 .glass-strong {
-	background: rgba(255, 255, 255, 0.75);
-	backdrop-filter: blur(32px) saturate(180%);
-	-webkit-backdrop-filter: blur(32px) saturate(180%);
+	background: rgba(255, 255, 255, 0.72);
+	backdrop-filter: blur(32px) saturate(150%);
+	-webkit-backdrop-filter: blur(32px) saturate(150%);
 	border: 1px solid rgba(255, 255, 255, 0.85);
-	box-shadow: 0 12px 40px rgba(80, 60, 160, 0.12);
+	border-radius: 16px;
+	box-shadow: 0 12px 40px rgba(60, 40, 120, 0.1);
+}
+
+.dark .glass {
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dark .glass-strong {
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.06));
-	border: 1px solid rgba(255, 255, 255, 0.18);
+	background: rgba(255, 255, 255, 0.07);
+	border: 1px solid rgba(255, 255, 255, 0.11);
 	box-shadow: none;
 }
 
 /* ---- sidebar ---- */
 .sidebar-glass {
-	background: rgba(255, 255, 255, 0.6);
-	backdrop-filter: blur(36px) saturate(150%);
-	-webkit-backdrop-filter: blur(36px) saturate(150%);
+	background: rgba(255, 255, 255, 0.65);
+	backdrop-filter: blur(40px) saturate(140%);
+	-webkit-backdrop-filter: blur(40px) saturate(140%);
 }
 
 .dark .sidebar-glass {
-	background: linear-gradient(180deg, rgba(19, 19, 32, 0.82), rgba(10, 10, 20, 0.86));
+	background: rgba(9, 9, 16, 0.55);
 }
 
-/* ---- chat input (gradient border) ---- */
+/* ---- chat input (clean glass + focus ring) ---- */
 .input-glass {
-	background:
-		linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6)) padding-box,
-		linear-gradient(
-				135deg,
-				rgba(139, 92, 246, 0.75),
-				rgba(217, 70, 239, 0.5),
-				rgba(34, 211, 238, 0.45)
-			)
-			border-box;
-	border: 1px solid transparent;
-	backdrop-filter: blur(32px) saturate(180%);
-	-webkit-backdrop-filter: blur(32px) saturate(180%);
+	background: rgba(255, 255, 255, 0.72);
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	backdrop-filter: blur(24px) saturate(140%);
+	-webkit-backdrop-filter: blur(24px) saturate(140%);
+	border-radius: 18px;
+	box-shadow: 0 4px 24px rgba(60, 40, 120, 0.07);
+	transition:
+		border-color 180ms ease,
+		box-shadow 180ms ease;
+}
+
+.input-glass:focus-within {
+	border-color: rgba(139, 92, 246, 0.45);
 	box-shadow:
-		0 0 42px rgba(139, 92, 246, 0.25),
-		0 12px 40px rgba(80, 60, 160, 0.15);
+		0 0 0 3px rgba(139, 92, 246, 0.12),
+		0 4px 24px rgba(60, 40, 120, 0.07);
 }
 
 .dark .input-glass {
-	background:
-		linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03)) padding-box,
-		linear-gradient(
-				135deg,
-				rgba(139, 92, 246, 0.65),
-				rgba(217, 70, 239, 0.45),
-				rgba(34, 211, 238, 0.35)
-			)
-			border-box;
-	box-shadow:
-		0 0 48px rgba(139, 92, 246, 0.22),
-		0 12px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* ---- navbar pill ---- */
-.navbar-glass {
-	background: rgba(255, 255, 255, 0.75);
-	backdrop-filter: blur(28px) saturate(160%);
-	-webkit-backdrop-filter: blur(28px) saturate(160%);
-	border: 1px solid rgba(255, 255, 255, 0.85);
-	box-shadow: 0 8px 32px rgba(80, 60, 160, 0.12);
-}
-
-.dark .navbar-glass {
-	background: rgba(10, 10, 20, 0.72);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.09);
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.dark .input-glass:focus-within {
+	border-color: rgba(167, 139, 250, 0.55);
+	box-shadow:
+		0 0 0 3px rgba(167, 139, 250, 0.16),
+		0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 /* ---- selected chat item ---- */
 .chat-item-active {
-	background: linear-gradient(90deg, rgba(139, 92, 246, 0.18), rgba(217, 70, 239, 0.08)) !important;
-	border-color: rgba(139, 92, 246, 0.4) !important;
-	box-shadow: 0 0 18px rgba(139, 92, 246, 0.18);
+	background: rgba(139, 92, 246, 0.08) !important;
+	border-color: rgba(139, 92, 246, 0.25) !important;
 }
 
 .dark .chat-item-active {
-	background: linear-gradient(90deg, rgba(139, 92, 246, 0.26), rgba(217, 70, 239, 0.1)) !important;
-	border-color: rgba(167, 139, 250, 0.4) !important;
-	box-shadow: 0 0 18px rgba(139, 92, 246, 0.15);
+	background: rgba(167, 139, 250, 0.13) !important;
+	border-color: rgba(167, 139, 250, 0.28) !important;
 }
 
 /* ---- new chat pill ---- */
 .new-chat-pill {
-	background: linear-gradient(90deg, rgba(139, 92, 246, 0.18), rgba(217, 70, 239, 0.08));
-	border: 1px solid rgba(139, 92, 246, 0.35);
+	background: rgba(139, 92, 246, 0.07);
+	border: 1px solid rgba(139, 92, 246, 0.22);
 }
 
 .new-chat-pill:hover {
-	background: linear-gradient(90deg, rgba(139, 92, 246, 0.28), rgba(217, 70, 239, 0.16));
-	border-color: rgba(139, 92, 246, 0.55);
-	box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+	background: rgba(139, 92, 246, 0.13);
+	border-color: rgba(139, 92, 246, 0.38);
 }
 
 .dark .new-chat-pill {
-	background: linear-gradient(90deg, rgba(139, 92, 246, 0.3), rgba(217, 70, 239, 0.14));
-	border: 1px solid rgba(167, 139, 250, 0.4);
+	background: rgba(167, 139, 250, 0.1);
+	border: 1px solid rgba(167, 139, 250, 0.22);
 }
 
 .dark .new-chat-pill:hover {
-	background: linear-gradient(90deg, rgba(139, 92, 246, 0.44), rgba(217, 70, 239, 0.24));
-	border-color: rgba(167, 139, 250, 0.55);
+	background: rgba(167, 139, 250, 0.18);
+	border-color: rgba(167, 139, 250, 0.36);
 }
 
 /* ---- user message bubble ---- */
 .user-bubble {
-	background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(217, 70, 239, 0.08));
-	border: 1px solid rgba(139, 92, 246, 0.35);
-	backdrop-filter: blur(14px);
-	box-shadow: 0 4px 24px rgba(80, 60, 160, 0.12);
+	background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.04));
+	border: 1px solid rgba(139, 92, 246, 0.16);
 }
 
 .dark .user-bubble {
-	background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(217, 70, 239, 0.14));
-	border: 1px solid rgba(167, 139, 250, 0.38);
-	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+	background: linear-gradient(135deg, rgba(167, 139, 250, 0.16), rgba(167, 139, 250, 0.06));
+	border: 1px solid rgba(167, 139, 250, 0.22);
 }
 
 /* ---- hero title ---- */
 .hero-title {
-	background: linear-gradient(120deg, #7c3aed, #c026d3 45%, #0891b2 90%);
+	background: linear-gradient(120deg, #6d28d9, #a855f7 55%, #7c3aed);
 	background-size: 200% 100%;
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	animation: hero-shift 6s ease-in-out infinite alternate;
+	animation: hero-shift 8s ease-in-out infinite alternate;
 }
 
 .dark .hero-title {
-	background: linear-gradient(120deg, #c4b5fd, #f0abfc 45%, #67e8f9 90%);
+	background: linear-gradient(120deg, #c4b5fd, #a78bfa 55%, #818cf8);
 	background-size: 200% 100%;
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	animation: hero-shift 6s ease-in-out infinite alternate;
+	animation: hero-shift 8s ease-in-out infinite alternate;
 }
 
 @keyframes hero-shift {
@@ -1105,29 +1082,33 @@ html.high-contrast:not(.dark) .shimmer {
 }
 
 .accent-gradient-text {
-	background: linear-gradient(120deg, var(--glass-accent), var(--glass-accent-2));
+	background: linear-gradient(120deg, var(--accent-strong), var(--accent));
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 .accent-gradient-bg {
-	background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+	background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
 }
 
 .accent-glow {
-	box-shadow: 0 0 28px var(--glass-accent-glow);
+	box-shadow: 0 0 22px rgba(139, 92, 246, 0.3);
 }
 
 .chat-scrollbar::-webkit-scrollbar-thumb {
-	background: linear-gradient(180deg, rgba(139, 92, 246, 0.5), rgba(217, 70, 239, 0.3));
+	background: rgba(139, 92, 246, 0.4);
 	border-radius: 9999px;
 }
 
+.dark .chat-scrollbar::-webkit-scrollbar-thumb {
+	background: rgba(167, 139, 250, 0.35);
+}
+
 ::selection {
-	background: rgba(139, 92, 246, 0.35);
+	background: rgba(139, 92, 246, 0.3);
 }
 
 .dark ::selection {
-	background: rgba(167, 139, 250, 0.4);
+	background: rgba(167, 139, 250, 0.35);
 }
