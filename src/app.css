@@ -727,7 +727,11 @@ body {
 }
 
 .dark body {
-	background: #171717;
+	background:
+		radial-gradient(at 15% 0%, rgba(139, 92, 246, 0.14) 0px, transparent 55%),
+		radial-gradient(at 85% 10%, rgba(217, 70, 239, 0.08) 0px, transparent 50%),
+		radial-gradient(at 80% 100%, rgba(34, 211, 238, 0.07) 0px, transparent 55%),
+		#0a0a14;
 	color: #eee;
 }
 
@@ -917,4 +921,74 @@ html.high-contrast:not(.dark) .shimmer {
 	background: none;
 	color: var(--color-gray-700);
 	-webkit-text-fill-color: var(--color-gray-700);
+}
+
+/* ============================================
+   Glassmorphism design system (custom)
+   ============================================ */
+:root {
+	--glass-bg: rgba(255, 255, 255, 0.045);
+	--glass-bg-strong: rgba(255, 255, 255, 0.075);
+	--glass-border: rgba(255, 255, 255, 0.09);
+	--glass-text: rgba(255, 255, 255, 0.92);
+	--glass-text-muted: rgba(255, 255, 255, 0.55);
+	--glass-accent: #a78bfa;
+	--glass-accent-2: #e879f9;
+	--glass-accent-glow: rgba(167, 139, 250, 0.3);
+}
+
+.dark .glass {
+	background: var(--glass-bg);
+	backdrop-filter: blur(20px) saturate(150%);
+	-webkit-backdrop-filter: blur(20px) saturate(150%);
+	border: 1px solid var(--glass-border);
+}
+
+.dark .glass-strong {
+	background: var(--glass-bg-strong);
+	backdrop-filter: blur(28px) saturate(180%);
+	-webkit-backdrop-filter: blur(28px) saturate(180%);
+	border: 1px solid var(--glass-border);
+}
+
+.dark .glass-hover {
+	transition:
+		background 150ms ease,
+		border-color 150ms ease;
+}
+
+.dark .glass-hover:hover {
+	background: rgba(255, 255, 255, 0.065);
+	border-color: rgba(255, 255, 255, 0.14);
+}
+
+.dark .text-glass {
+	color: var(--glass-text);
+}
+
+.dark .text-glass-muted {
+	color: var(--glass-text-muted);
+}
+
+.dark .accent-gradient-text {
+	background: linear-gradient(120deg, var(--glass-accent), var(--glass-accent-2));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.dark .accent-gradient-bg {
+	background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+}
+
+.dark .accent-glow {
+	box-shadow: 0 0 28px var(--glass-accent-glow);
+}
+
+.dark .chat-scrollbar::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark ::selection {
+	background: rgba(167, 139, 250, 0.4);
 }

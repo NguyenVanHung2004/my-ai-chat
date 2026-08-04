@@ -23,6 +23,10 @@ export default {
 			},
 			transitionProperty: {
 				width: 'width'
+			},
+			boxShadow: {
+				glass: '0 8px 32px rgba(0, 0, 0, 0.35)',
+				glow: '0 0 28px rgba(167, 139, 250, 0.3)'
 			}
 		}
 	},
