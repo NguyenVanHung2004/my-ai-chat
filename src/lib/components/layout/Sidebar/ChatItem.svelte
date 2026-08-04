@@ -1,5 +1,5 @@
-<script context="module" lang="ts">
-	/** Shared 1×1 transparent drag preview; avoids one Image per sidebar row */
+﻿<script context="module" lang="ts">
+	/** Shared 1Ã—1 transparent drag preview; avoids one Image per sidebar row */
 	const invisibleDragImage = new Image();
 	invisibleDragImage.src =
 		'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
@@ -506,12 +506,12 @@
 			class=" w-full flex justify-between rounded-xl px-2 py-[6px] {id === $chatId || confirmEdit
 				? ($settings?.highContrastMode ?? false)
 					? 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-					: 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
+					: 'bg-black/[0.035] chat-item-active dark:border dark:border-white/[0.14] selected'
 				: selected
 					? ($settings?.highContrastMode ?? false)
 						? 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-						: 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-					: 'hover:bg-gray-50 dark:hover:bg-white/[0.05] group-hover:bg-gray-50 dark:group-hover:bg-white/[0.05]'}  whitespace-nowrap text-ellipsis relative transition {generating
+						: 'bg-black/[0.035] chat-item-active dark:border dark:border-white/[0.14] selected'
+					: 'hover:bg-gray-50 dark:hover:bg-white/[0.06] group-hover:bg-gray-50 dark:group-hover:bg-white/[0.06]'}  whitespace-nowrap text-ellipsis relative transition {generating
 				? 'cursor-not-allowed'
 				: ''}"
 		>
@@ -551,12 +551,12 @@
 				class=" w-full flex justify-between rounded-xl px-2 py-[6px] {id === $chatId || confirmEdit
 					? ($settings?.highContrastMode ?? false)
 						? 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-						: 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
+						: 'bg-black/[0.035] chat-item-active dark:border dark:border-white/[0.14] selected'
 					: selected
 						? ($settings?.highContrastMode ?? false)
 							? 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-							: 'bg-black/[0.035] dark:bg-white/[0.09] dark:border dark:border-white/[0.14] selected'
-						: ' hover:bg-gray-50 dark:hover:bg-white/[0.05] group-hover:bg-gray-50 dark:group-hover:bg-white/[0.05]'}  whitespace-nowrap text-ellipsis transition"
+							: 'bg-black/[0.035] chat-item-active dark:border dark:border-white/[0.14] selected'
+						: ' hover:bg-gray-50 dark:hover:bg-white/[0.06] group-hover:bg-gray-50 dark:group-hover:bg-white/[0.06]'}  whitespace-nowrap text-ellipsis transition"
 				href="/c/{id}"
 				aria-current={id === $chatId ? 'page' : undefined}
 				onclick={() => {

@@ -1584,9 +1584,9 @@
 
 						<div
 							id="message-input-container"
-							class="flex-1 flex flex-col relative w-full shadow-glass rounded-3xl border {$temporaryChatEnabled
-								? 'border-dashed border-gray-100 dark:border-gray-800 hover:border-gray-200 focus-within:border-gray-200 hover:dark:border-gray-700 focus-within:dark:border-gray-700'
-								: ' border-gray-100/30 dark:border-white/[0.08] hover:border-gray-200 focus-within:border-gray-100 hover:dark:border-white/[0.14] focus-within:dark:border-[rgba(167,139,250,0.45)]'}  transition px-0.5 bg-white/10 dark:bg-white/[0.05] backdrop-blur-2xl backdrop-saturate-150 focus-within:shadow-glow dark:text-gray-100"
+							class="flex-1 flex flex-col relative w-full rounded-3xl {$temporaryChatEnabled
+								? 'border-dashed border-gray-100 dark:border-white/20'
+								: 'dark:input-glass bg-white/10 border border-gray-100/40'} transition px-0.5 dark:text-gray-100"
 							dir={$settings?.chatDirection ?? 'auto'}
 						>
 							{#if atSelectedModel !== undefined}

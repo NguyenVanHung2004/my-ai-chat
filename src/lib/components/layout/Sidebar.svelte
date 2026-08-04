@@ -1110,7 +1110,7 @@
 		role="navigation"
 		aria-label={$i18n.t('Chat history')}
 		class="h-screen max-h-[100dvh] min-h-screen select-none {$showSidebar
-			? `${$mobile ? 'bg-gray-50 dark:bg-gray-950' : 'bg-white/30 dark:bg-white/[0.03] dark:backdrop-blur-2xl dark:backdrop-saturate-150'} z-50`
+			? `${$mobile ? 'bg-gray-50 dark:bg-gray-950' : 'bg-white/40 dark:sidebar-glass'} z-50`
 			: ' bg-transparent z-0 '} {$isApp
 			? `ml-[4.5rem] md:ml-0 `
 			: ' transition-all duration-300 '} shrink-0 text-gray-700 dark:text-gray-300 text-[13px] leading-5 fixed top-0 left-0 overflow-x-hidden
@@ -1119,7 +1119,7 @@
 		data-state={$showSidebar}
 	>
 		<div
-			class=" my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[var(--sidebar-width)] overflow-x-hidden scrollbar-hidden z-50 border-e border-gray-50 dark:border-white/[0.06] {$showSidebar
+			class=" my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[var(--sidebar-width)] overflow-x-hidden scrollbar-hidden z-50 border-e border-gray-50 dark:border-white/[0.08] {$showSidebar
 				? ''
 				: 'invisible'}"
 		>
@@ -1188,7 +1188,7 @@
 					<div class="px-1 flex justify-center text-gray-700 dark:text-gray-300">
 						<a
 							id="sidebar-new-chat-button"
-							class="group grow flex items-center space-x-2 rounded-xl px-2 py-1.5 hover:bg-white/10 dark:hover:bg-white/[0.06] transition outline-none"
+							class="group grow flex items-center space-x-2 rounded-xl px-2 py-1.5 new-chat-pill transition outline-none"
 							href="/"
 							draggable="false"
 							on:click={newChatHandler}

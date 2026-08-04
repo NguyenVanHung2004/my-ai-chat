@@ -57,7 +57,7 @@
 						>
 							<img
 								src={`${WEBUI_API_BASE_URL}/models/model/profile/image?id=${model?.id}&lang=${$i18n.language}`}
-								class=" size-[2.7rem] rounded-full"
+								class=" size-[2.7rem] rounded-full dark:ring-2 dark:ring-violet-400/50 dark:shadow-glow"
 								alt="logo"
 								draggable="false"
 								on:error={(e) => {
@@ -83,14 +83,14 @@
 		{/if}
 
 		<div
-			class=" mt-2 mb-4 text-3xl text-gray-800 dark:text-gray-100 text-left flex items-center gap-4"
+			class=" mt-2 mb-4 text-4xl md:text-5xl text-gray-800 dark:text-gray-100 text-left flex items-center gap-4"
 		>
 			<div>
-				<div class=" capitalize line-clamp-1" in:fade={{ duration: 200 }}>
+				<div class=" capitalize line-clamp-1 dark:hero-title" in:fade={{ duration: 200 }}>
 					{#if models[selectedModelIdx]?.name}
-						<span class="accent-gradient-text">{models[selectedModelIdx]?.name}</span>
+						{models[selectedModelIdx]?.name}
 					{:else}
-						<span class="accent-gradient-text">{$i18n.t('Hello, {{name}}', { name: $user?.name })}</span>
+						{$i18n.t('Hello, {{name}}', { name: $user?.name })}
 					{/if}
 				</div>
 

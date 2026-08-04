@@ -728,10 +728,12 @@ body {
 
 .dark body {
 	background:
-		radial-gradient(at 15% 0%, rgba(139, 92, 246, 0.14) 0px, transparent 55%),
-		radial-gradient(at 85% 10%, rgba(217, 70, 239, 0.08) 0px, transparent 50%),
-		radial-gradient(at 80% 100%, rgba(34, 211, 238, 0.07) 0px, transparent 55%),
-		#0a0a14;
+		radial-gradient(1200px 700px at 12% -8%, rgba(124, 58, 237, 0.32) 0px, transparent 62%),
+		radial-gradient(1000px 620px at 88% 2%, rgba(217, 70, 239, 0.24) 0px, transparent 55%),
+		radial-gradient(900px 650px at 78% 105%, rgba(34, 211, 238, 0.2) 0px, transparent 60%),
+		radial-gradient(800px 550px at -2% 96%, rgba(139, 92, 246, 0.18) 0px, transparent 55%),
+		#07070f;
+	background-attachment: fixed;
 	color: #eee;
 }
 
@@ -938,17 +940,17 @@ html.high-contrast:not(.dark) .shimmer {
 }
 
 .dark .glass {
-	background: var(--glass-bg);
-	backdrop-filter: blur(20px) saturate(150%);
-	-webkit-backdrop-filter: blur(20px) saturate(150%);
-	border: 1px solid var(--glass-border);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+	backdrop-filter: blur(24px) saturate(160%);
+	-webkit-backdrop-filter: blur(24px) saturate(160%);
+	border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .dark .glass-strong {
-	background: var(--glass-bg-strong);
-	backdrop-filter: blur(28px) saturate(180%);
-	-webkit-backdrop-filter: blur(28px) saturate(180%);
-	border: 1px solid var(--glass-border);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.06));
+	backdrop-filter: blur(32px) saturate(180%);
+	-webkit-backdrop-filter: blur(32px) saturate(180%);
+	border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .dark .glass-hover {
@@ -958,8 +960,89 @@ html.high-contrast:not(.dark) .shimmer {
 }
 
 .dark .glass-hover:hover {
-	background: rgba(255, 255, 255, 0.065);
-	border-color: rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.09);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Sidebar glass panel */
+.dark .sidebar-glass {
+	background: linear-gradient(180deg, rgba(19, 19, 32, 0.82), rgba(10, 10, 20, 0.86));
+	backdrop-filter: blur(36px) saturate(150%);
+	-webkit-backdrop-filter: blur(36px) saturate(150%);
+}
+
+/* Gradient-border glass (chat input) */
+.dark .input-glass {
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03)) padding-box,
+		linear-gradient(
+				135deg,
+				rgba(139, 92, 246, 0.65),
+				rgba(217, 70, 239, 0.45),
+				rgba(34, 211, 238, 0.35)
+			)
+			border-box;
+	border: 1px solid transparent;
+	backdrop-filter: blur(32px) saturate(180%);
+	-webkit-backdrop-filter: blur(32px) saturate(180%);
+	box-shadow:
+		0 0 48px rgba(139, 92, 246, 0.22),
+		0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Floating navbar pill */
+.dark .navbar-glass {
+	background: rgba(10, 10, 20, 0.72);
+	backdrop-filter: blur(28px) saturate(160%);
+	-webkit-backdrop-filter: blur(28px) saturate(160%);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Selected chat item */
+.dark .chat-item-active {
+	background: linear-gradient(90deg, rgba(139, 92, 246, 0.26), rgba(217, 70, 239, 0.1)) !important;
+	border-color: rgba(167, 139, 250, 0.4) !important;
+	box-shadow: 0 0 18px rgba(139, 92, 246, 0.15);
+}
+
+/* New chat pill */
+.dark .new-chat-pill {
+	background: linear-gradient(90deg, rgba(139, 92, 246, 0.3), rgba(217, 70, 239, 0.14));
+	border: 1px solid rgba(167, 139, 250, 0.4);
+}
+
+.dark .new-chat-pill:hover {
+	background: linear-gradient(90deg, rgba(139, 92, 246, 0.44), rgba(217, 70, 239, 0.24));
+	border-color: rgba(167, 139, 250, 0.55);
+	box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+/* User message bubble */
+.dark .user-bubble {
+	background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(217, 70, 239, 0.14));
+	border: 1px solid rgba(167, 139, 250, 0.38);
+	backdrop-filter: blur(14px);
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Hero title (placeholder) */
+.dark .hero-title {
+	background: linear-gradient(120deg, #c4b5fd, #f0abfc 45%, #67e8f9 90%);
+	background-size: 200% 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: hero-shift 6s ease-in-out infinite alternate;
+}
+
+@keyframes hero-shift {
+	0% {
+		background-position: 0% 0;
+	}
+	100% {
+		background-position: 100% 0;
+	}
 }
 
 .dark .text-glass {
@@ -986,7 +1069,8 @@ html.high-contrast:not(.dark) .shimmer {
 }
 
 .dark .chat-scrollbar::-webkit-scrollbar-thumb {
-	background-color: rgba(255, 255, 255, 0.12);
+	background: linear-gradient(180deg, rgba(167, 139, 250, 0.55), rgba(217, 70, 239, 0.35));
+	border-radius: 9999px;
 }
 
 .dark ::selection {

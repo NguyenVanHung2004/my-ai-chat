@@ -728,7 +728,7 @@
 						{/if}
 
 						{#if edit === true}
-							<div class="w-full bg-gray-50 dark:bg-white/[0.06] dark:border dark:border-white/[0.08] rounded-3xl px-3 py-3 my-2">
+							<div class="w-full dark:glass-strong bg-gray-50 rounded-3xl px-3 py-3 my-2">
 								{#if editedOutput}
 									<!-- Structured output editor (visual + JSON toggle) -->
 									<OutputEditView

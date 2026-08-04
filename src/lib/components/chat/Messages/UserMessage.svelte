@@ -199,7 +199,7 @@
 			{/if}
 
 			{#if edit === true}
-				<div class=" w-full bg-gray-50 dark:bg-white/[0.06] dark:border dark:border-white/[0.08] rounded-3xl px-4 py-3 mb-2">
+				<div class=" w-full dark:glass-strong bg-gray-50 rounded-3xl px-4 py-3 mb-2">
 					{#if (editedFiles ?? []).length > 0}
 						<div class="flex items-center flex-wrap gap-2 -mx-2 mb-1">
 							{#each editedFiles as file, fileIdx}
@@ -375,7 +375,7 @@
 					<div class="flex {($settings?.chatBubble ?? true) ? 'justify-end pb-1' : 'w-full'}">
 						<div
 							class="rounded-3xl {($settings?.chatBubble ?? true)
-								? `max-w-[90%] px-4 py-1.5 bg-gray-50 dark:bg-white/[0.06] dark:border dark:border-white/[0.08] dark:backdrop-blur-xl ${
+								? `max-w-[90%] px-4 py-1.5 bg-gray-50 dark:user-bubble ${
 										message.files ? 'rounded-tr-lg' : ''
 									}`
 								: ' w-full'}"
