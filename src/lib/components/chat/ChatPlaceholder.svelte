@@ -88,9 +88,9 @@
 			<div>
 				<div class=" capitalize line-clamp-1" in:fade={{ duration: 200 }}>
 					{#if models[selectedModelIdx]?.name}
-						{models[selectedModelIdx]?.name}
+						<span class="accent-gradient-text">{models[selectedModelIdx]?.name}</span>
 					{:else}
-						{$i18n.t('Hello, {{name}}', { name: $user?.name })}
+						<span class="accent-gradient-text">{$i18n.t('Hello, {{name}}', { name: $user?.name })}</span>
 					{/if}
 				</div>
 
