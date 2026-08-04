@@ -1726,7 +1726,7 @@
 											<div class="mt-2.5 mr-3">
 												<button
 													type="button"
-													class="p-1 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
+													class="p-1 rounded-lg hover:bg-gray-100/50 dark:hover:bg-white/[0.08]/50"
 													aria-label="Expand input"
 													on:click={async () => {
 														showInputModal = true;
@@ -1964,7 +1964,7 @@
 										<button
 											type="button"
 											id="input-menu-button"
-											class="bg-transparent hover:bg-gray-100 text-gray-700 dark:text-white dark:hover:bg-gray-800 rounded-full size-[1.875rem] flex justify-center items-center outline-hidden focus:outline-hidden shrink-0"
+											class="bg-transparent hover:bg-gray-100 text-gray-700 dark:text-white dark:hover:bg-white/[0.08] rounded-full size-[1.875rem] flex justify-center items-center outline-hidden focus:outline-hidden shrink-0"
 											aria-label={$i18n.t('More')}
 										>
 											<PlusAlt className="size-5" />
@@ -2010,7 +2010,7 @@
 												<button
 													type="button"
 													id="integration-menu-button"
-													class="bg-transparent hover:bg-gray-100 text-gray-700 dark:text-white dark:hover:bg-gray-800 rounded-full size-[1.875rem] flex justify-center items-center outline-hidden focus:outline-hidden shrink-0"
+													class="bg-transparent hover:bg-gray-100 text-gray-700 dark:text-white dark:hover:bg-white/[0.08] rounded-full size-[1.875rem] flex justify-center items-center outline-hidden focus:outline-hidden shrink-0"
 													aria-label={$i18n.t('Integrations')}
 												>
 													<Component className="size-4.5" strokeWidth="1.5" />
@@ -2024,7 +2024,7 @@
 													<button
 														type="button"
 														id="model-valves-button"
-														class="bg-transparent hover:bg-gray-100 text-gray-700 dark:text-white dark:hover:bg-gray-800 rounded-full size-[1.875rem] flex justify-center items-center outline-hidden focus:outline-hidden"
+														class="bg-transparent hover:bg-gray-100 text-gray-700 dark:text-white dark:hover:bg-white/[0.08] rounded-full size-[1.875rem] flex justify-center items-center outline-hidden focus:outline-hidden"
 														on:click={() => {
 															selectedValvesType = 'function';
 															selectedValvesItemId = selectedModelIds[0]?.split('.')[0];
@@ -2109,7 +2109,7 @@
 																filterId
 															)
 																? 'text-sky-500 dark:text-sky-300 bg-sky-50 hover:bg-sky-100 dark:bg-sky-400/10 dark:hover:bg-sky-600/10 border border-sky-200/40 dark:border-sky-500/20'
-																: 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 '} capitalize"
+																: 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-white/[0.08] '} capitalize"
 														>
 															{#if filter?.icon}
 																<div class="size-4 items-center flex justify-center">
@@ -2152,7 +2152,7 @@
 														class="group p-[6px] flex gap-1.5 items-center text-sm rounded-full transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden {webSearchEnabled ||
 														($settings?.webSearch ?? false) === 'always'
 															? ' text-sky-500 dark:text-sky-300 bg-sky-50 hover:bg-sky-100 dark:bg-sky-400/10 dark:hover:bg-sky-600/10 border border-sky-200/40 dark:border-sky-500/20'
-															: 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 '}"
+															: 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-white/[0.08] '}"
 													>
 														<GlobeAlt className="size-4" strokeWidth="1.75" />
 														<div class="hidden group-hover:block">
@@ -2170,7 +2170,7 @@
 														type="button"
 														class="group p-[6px] flex gap-1.5 items-center text-sm rounded-full transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden {imageGenerationEnabled
 															? ' text-sky-500 dark:text-sky-300 bg-sky-50 hover:bg-sky-100 dark:bg-sky-400/10 dark:hover:bg-sky-700/10 border border-sky-200/40 dark:border-sky-500/20'
-															: 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 '}"
+															: 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-white/[0.08] '}"
 													>
 														<Photo className="size-4" strokeWidth="1.75" />
 														<div class="hidden group-hover:block">
@@ -2192,7 +2192,7 @@
 														type="button"
 														class=" group p-[6px] flex gap-1.5 items-center text-sm transition-colors duration-300 max-w-full overflow-hidden {codeInterpreterEnabled
 															? ' text-sky-500 dark:text-sky-300 bg-sky-50 hover:bg-sky-100 dark:bg-sky-400/10 dark:hover:bg-sky-700/10 border border-sky-200/40 dark:border-sky-500/20'
-															: 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 '} {($settings?.highContrastMode ??
+															: 'bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-white/[0.08] '} {($settings?.highContrastMode ??
 														false)
 															? 'm-1'
 															: 'focus:outline-hidden rounded-full'}"
@@ -2242,7 +2242,7 @@
 											showSetDefault={!history?.currentId}
 											placement="auto"
 											align="end"
-											triggerClassName="items-center gap-1.5 rounded-lg pl-2 pr-1.5 py-1 text-[13px] font-normal text-gray-600 transition-colors duration-100 hover:bg-gray-50/40 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-800/40 dark:hover:text-gray-200"
+											triggerClassName="items-center gap-1.5 rounded-lg pl-2 pr-1.5 py-1 text-[13px] font-normal text-gray-600 transition-colors duration-100 hover:bg-gray-100/70 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-white/[0.07] dark:hover:text-gray-100"
 										/>
 									</div>
 
@@ -2267,7 +2267,7 @@
 											<Tooltip content={$i18n.t('Stop')}>
 												<button
 													aria-label={$i18n.t('Stop')}
-													class="bg-white hover:bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-800 transition rounded-full p-[5px]"
+													class="bg-white hover:bg-gray-100 text-gray-800 dark:bg-white/[0.1] dark:text-white dark:hover:bg-white/[0.16] transition rounded-full p-[5px]"
 													on:click={() => {
 														stopResponse();
 													}}
