@@ -57,9 +57,7 @@
 	role="listitem"
 	class="flex flex-col justify-between px-3.5 mb-3 w-full {($settings?.widescreenMode ?? null)
 		? 'max-w-full'
-		: 'max-w-[58rem]'} mx-auto rounded-lg group hover:bg-white/50 dark:hover:bg-white/[0.03] transition-colors {isSafari
-		? ''
-		: 'message-listitem'}"
+		: 'max-w-[58rem]'} mx-auto rounded-lg group {isSafari ? '' : 'message-listitem'}"
 >
 	{#if history.messages[messageId]}
 		{#if history.messages[messageId].role === 'user'}
