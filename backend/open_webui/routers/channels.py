@@ -1833,8 +1833,8 @@ async def get_webhook_profile_image(webhook_id: str, user=Depends(get_verified_u
             except Exception as e:
                 pass
 
-    # Return default favicon if no profile image
-    return FileResponse(f'{STATIC_DIR}/favicon.png')
+    # Return default placeholder if no profile image
+    return FileResponse(f'{STATIC_DIR}/model-placeholder.svg')
 
 
 @router.get('/{id}/webhooks', response_model=list[ChannelWebhookModel])

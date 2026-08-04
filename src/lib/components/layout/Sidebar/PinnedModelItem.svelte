@@ -40,7 +40,7 @@
 					class=" size-4 rounded-full"
 					alt="logo"
 					on:error={(e) => {
-						e.currentTarget.src = '/favicon.png';
+						e.currentTarget.src = '/model-placeholder.svg';
 					}}
 				/>
 			</div>

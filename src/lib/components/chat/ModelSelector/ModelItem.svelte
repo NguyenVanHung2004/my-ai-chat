@@ -88,7 +88,7 @@
 						class="flex size-4 items-center rounded-full"
 						loading="lazy"
 						on:error={(e) => {
-							e.currentTarget.src = '/favicon.png';
+							e.currentTarget.src = '/model-placeholder.svg';
 						}}
 					/>
 				</Tooltip>

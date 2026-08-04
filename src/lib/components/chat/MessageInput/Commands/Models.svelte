@@ -88,7 +88,7 @@
 						alt={model?.name ?? model.id}
 						class="mr-2 size-4.5 rounded-full object-cover"
 						on:error={(e) => {
-							e.currentTarget.src = '/favicon.png';
+							e.currentTarget.src = '/model-placeholder.svg';
 						}}
 					/>
 					<div class="min-w-0 truncate">

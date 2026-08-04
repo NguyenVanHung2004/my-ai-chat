@@ -708,7 +708,7 @@
 											loading="lazy"
 											decoding="async"
 											on:error={(e) => {
-												e.target.src = '/favicon.png';
+												e.target.src = '/model-placeholder.svg';
 											}}
 										/>
 									</div>

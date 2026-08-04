@@ -81,7 +81,7 @@
 		base_model_id: null,
 		name: '',
 		meta: {
-			profile_image_url: `${WEBUI_BASE_URL}/static/favicon.png`,
+			profile_image_url: `${WEBUI_BASE_URL}/static/model-placeholder.svg`,
 			description: '',
 			suggestion_prompts: null,
 			tags: []
@@ -603,7 +603,7 @@
 								<div class="flex min-w-0 flex-1 items-center gap-3">
 									<button
 										class="group relative flex size-12 shrink-0 items-center overflow-hidden rounded-xl md:size-14 {info
-											.meta.profile_image_url !== `${WEBUI_BASE_URL}/static/favicon.png`
+											.meta.profile_image_url !== `${WEBUI_BASE_URL}/static/model-placeholder.svg`
 											? 'bg-transparent'
 											: 'bg-gray-50 dark:bg-gray-850'} ring-1 ring-gray-200/70 transition hover:ring-gray-300 dark:ring-white/10 dark:hover:ring-white/20"
 										type="button"
@@ -620,7 +620,7 @@
 											/>
 										{:else}
 											<img
-												src="{WEBUI_BASE_URL}/static/favicon.png"
+												src="{WEBUI_BASE_URL}/static/model-placeholder.svg"
 												alt="model profile"
 												class="size-full object-cover"
 											/>

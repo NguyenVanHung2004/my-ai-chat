@@ -134,7 +134,7 @@
 											aria-hidden="true"
 											draggable="false"
 											on:error={(e) => {
-												e.currentTarget.src = '/favicon.png';
+												e.currentTarget.src = '/model-placeholder.svg';
 											}}
 										/>
 									</button>

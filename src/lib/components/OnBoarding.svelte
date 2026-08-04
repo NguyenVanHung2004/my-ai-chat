@@ -39,16 +39,6 @@
 
 {#if show}
 	<div class="relative h-screen max-h-[100dvh] w-full overflow-hidden text-white">
-		<div class="fixed top-6 left-6 z-50 sm:top-10 sm:left-10">
-			<img
-				id="logo"
-				crossorigin="anonymous"
-				src="/static/favicon.png"
-				class="size-6 rounded-full"
-				alt="logo"
-			/>
-		</div>
-
 		<video
 			bind:this={videoElement}
 			class="absolute inset-0 h-full w-full object-cover"

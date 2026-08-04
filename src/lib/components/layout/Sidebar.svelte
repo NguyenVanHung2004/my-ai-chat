@@ -956,7 +956,7 @@
 							class=" self-center flex size-[30px] items-center justify-center rounded-lg transition group-hover:bg-gray-50 dark:group-hover:bg-gray-900"
 						>
 							<img
-								src="{WEBUI_BASE_URL}/static/favicon.png"
+								src="{WEBUI_BASE_URL}/static/model-placeholder.svg"
 								class="sidebar-new-chat-icon size-5 rounded-full group-hover:hidden"
 								alt=""
 							/>
@@ -1126,20 +1126,6 @@
 			<div
 				class="sidebar px-1 pt-1.5 pb-1 flex justify-between space-x-1 text-gray-600 dark:text-gray-400 sticky top-0 z-10 -mb-2"
 			>
-				<a
-					class="flex items-center rounded-xl size-8.5 h-full justify-center hover:bg-gray-50 dark:hover:bg-white/[0.06] transition no-drag-region"
-					href="/"
-					draggable="false"
-					on:click={newChatHandler}
-				>
-					<img
-						crossorigin="anonymous"
-						src="{WEBUI_BASE_URL}/static/favicon.png"
-						class="sidebar-new-chat-icon size-5 rounded-full"
-						alt=""
-					/>
-				</a>
-
 				<a href="/" class="flex flex-1 px-0.5" on:click={newChatHandler}>
 					<div
 						id="sidebar-webui-name"

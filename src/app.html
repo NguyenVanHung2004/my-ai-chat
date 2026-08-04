@@ -68,38 +68,10 @@
 					metaThemeColorTag.setAttribute('content', '#06060a');
 				}
 
-				const preloadHref = document.documentElement.classList.contains('dark')
-					? '/static/splash-dark.png'
-					: '/static/splash.png';
-				const preload = document.createElement('link');
-				preload.rel = 'preload';
-				preload.as = 'image';
-				preload.href = preloadHref;
-				preload.setAttribute('fetchpriority', 'high');
-				document.head.appendChild(preload);
-
 				window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
 					document.documentElement.classList.add('dark');
 					document.documentElement.classList.remove('light');
 					metaThemeColorTag.setAttribute('content', '#06060a');
-				});
-				const isDarkMode = document.documentElement.classList.contains('dark');
-
-				const logo = document.createElement('img');
-				logo.id = 'logo';
-				logo.style =
-					'position: absolute; width: auto; height: 6rem; top: 44%; left: 50%; transform: translateX(-50%); display:block;';
-				logo.loading = 'eager';
-				logo.fetchPriority = 'high';
-				logo.src = isDarkMode ? '/static/splash-dark.png' : '/static/splash.png';
-
-				document.addEventListener('DOMContentLoaded', function () {
-					const splash = document.getElementById('splash-screen');
-					if (document.documentElement.classList.contains('her')) {
-						return;
-					}
-
-					if (splash) splash.prepend(logo);
 				});
 			})();
 		</script>

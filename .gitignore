@@ -316,3 +316,4 @@ cypress/screenshots
 .webui_secret_key
 run_backend.py
 backend.err
+backend.out
