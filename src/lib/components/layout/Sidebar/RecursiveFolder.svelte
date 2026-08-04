@@ -737,9 +737,9 @@
 		<div class="w-full group">
 			<div
 				id="folder-{folderId}-button"
-				class="relative w-full py-1 px-1.5 rounded-xl flex items-center gap-1.5 hover:bg-gray-50/60 dark:hover:bg-white/[0.05] transition {$selectedFolder?.id ===
+				class="relative w-full py-1 px-1.5 rounded-xl flex items-center gap-1.5 hover:bg-gray-200/60 dark:hover:bg-white/[0.08] transition {$selectedFolder?.id ===
 				folderId
-					? 'bg-violet-100/70 dark:bg-violet-500/[0.12] ring-1 ring-violet-500/25 selected'
+					? 'bg-violet-100 dark:bg-violet-500/[0.16] ring-1 ring-violet-500/40 selected'
 					: ''}"
 				on:dblclick={(e) => {
 					if (folders[folderId]?.shared && folders[folderId]?.permission !== 'write') return;
