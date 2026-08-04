@@ -111,7 +111,7 @@
 	};
 
 	onMount(async () => {
-		selectedTheme = localStorage.theme ?? 'system';
+		selectedTheme = localStorage.theme ?? 'dark';
 
 		languages = await getLanguages();
 

@@ -2,7 +2,6 @@
 	import { getContext } from 'svelte';
 
 	import Dropdown from '$lib/components/common/Dropdown.svelte';
-	import DropdownMenu from '$lib/components/common/DropdownMenu.svelte';
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
 	import Check from '$lib/components/icons/Check.svelte';
 	import Sparkles from '$lib/components/icons/Sparkles.svelte';
@@ -39,8 +38,8 @@
 
 	let show = false;
 
-	const currentVariant = () => {
-		const effort = params?.reasoning_effort;
+	const getCurrentVariant = (p: any) => {
+		const effort = p?.reasoning_effort;
 		if (typeof effort === 'string' && ['high', 'full', 'thinking'].includes(effort.toLowerCase())) {
 			return variants[2];
 		}
@@ -49,6 +48,8 @@
 		}
 		return variants[0];
 	};
+
+	$: current = getCurrentVariant(params);
 
 	const selectVariant = (variant) => {
 		if (params) {
@@ -80,37 +81,35 @@
 			class="group flex items-center gap-1.5 rounded-full px-2 py-1 text-[13px] font-normal text-gray-600 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-white/[0.08] dark:hover:text-gray-100 transition-colors shrink-0"
 			aria-label={$i18n.t('Model Variant')}
 		>
-			{#if currentVariant().icon}
-				<svelte:component this={currentVariant().icon} className="size-3.5" strokeWidth="1.75" />
-			{/if}
-			<span class="max-w-20 truncate">{currentVariant().label}</span>
+			<svelte:component this={current.icon} className="size-3.5 shrink-0" strokeWidth="1.75" />
+			<span class="max-w-20 truncate">{current.label}</span>
 		</button>
 	</Tooltip>
 
 	<div slot="content">
-		<DropdownMenu className="min-w-56 max-h-72 overflow-y-auto scrollbar-thin">
+		<div
+			class="glass-strong flex min-w-56 flex-col gap-0.5 rounded-xl p-1 text-gray-900 dark:text-white shadow-glass"
+		>
 			{#each variants as variant}
 				<button
 					type="button"
-					class="flex w-full items-center justify-between gap-2 rounded-xl px-2 py-1.5 text-[13px] font-normal cursor-pointer hover:bg-gray-50/40 dark:hover:bg-white/[0.06]"
+					class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left text-[13px] font-normal cursor-pointer transition-colors hover:bg-gray-50/60 dark:hover:bg-white/[0.06]"
 					on:click={() => selectVariant(variant)}
 				>
-					<div class="flex min-w-0 items-center gap-2">
-						<svelte:component this={variant.icon} className="size-3.5" strokeWidth="1.75" />
+					<svelte:component this={variant.icon} className="size-3.5 shrink-0" strokeWidth="1.75" />
 
-						<div class="flex min-w-0 flex-col text-left">
-							<div class="line-clamp-1">{variant.label}</div>
-							<div class="line-clamp-1 text-[11px] text-gray-400 dark:text-gray-500">
-								{variant.description}
-							</div>
+					<div class="flex min-w-0 flex-1 flex-col">
+						<div class="line-clamp-1 leading-4">{variant.label}</div>
+						<div class="line-clamp-1 text-[11px] leading-4 text-gray-500 dark:text-gray-400">
+							{variant.description}
 						</div>
 					</div>
 
-					{#if currentVariant().id === variant.id}
+					{#if current.id === variant.id}
 						<Check className="size-3.5 shrink-0 text-violet-600 dark:text-violet-400" />
 					{/if}
 				</button>
 			{/each}
-		</DropdownMenu>
+		</div>
 	</div>
 </Dropdown>

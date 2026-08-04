@@ -46,8 +46,8 @@
 				const metaThemeColorTag = document.querySelector('meta[name="theme-color"]');
 				const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-				if (!localStorage?.theme) {
-					localStorage.theme = 'system';
+				if (!localStorage?.theme || localStorage.theme === 'system') {
+					localStorage.theme = 'dark';
 				}
 
 				// Always render dark: the app is designed around a dark liquid-glass theme.
