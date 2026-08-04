@@ -199,8 +199,11 @@
 </script>
 
 <div class="px-1 mb-1 flex justify-center space-x-2 relative z-10" id="search-container">
-	<div class="flex w-full rounded-xl" id="chat-search">
-		<div class="self-center py-2 rounded-l-xl bg-transparent dark:text-gray-300">
+	<div
+		class="flex w-full rounded-xl border border-gray-100 dark:border-white/[0.08] bg-gray-50/60 dark:bg-white/[0.05] transition"
+		id="chat-search"
+	>
+		<div class="self-center py-2 pl-2 rounded-l-xl bg-transparent dark:text-gray-300">
 			<Search />
 		</div>
 
@@ -305,7 +308,7 @@
 	{#if focused && (filteredOptions.length > 0 || filteredItems.length > 0)}
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="absolute top-0 mt-8 left-0 right-1 border border-gray-100 dark:border-gray-900 bg-gray-50 dark:bg-gray-950 rounded-2xl z-10 shadow-lg"
+			class="absolute top-0 mt-8 left-0 right-1 border border-gray-100 dark:border-white/[0.1] bg-gray-50/95 dark:bg-[#12121e]/95 backdrop-blur-2xl rounded-2xl z-10 shadow-glass"
 			id="search-options-container"
 			in:fade={{ duration: 50 }}
 			on:mouseenter={() => {
