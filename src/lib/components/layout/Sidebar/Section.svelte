@@ -125,10 +125,10 @@
 
 		{#if collapsible}
 			<Collapsible bind:open className="w-full" buttonClassName="w-full" onChange={setOpen}>
-				<div class="flex items-center justify-between h-6 w-full pl-3.5 pr-1.5 shrink-0">
+				<div class="flex items-center justify-between h-7 w-full pl-3 pr-1.5 shrink-0">
 					<button
 						type="button"
-						class="group flex flex-1 h-full items-center gap-1 text-left text-xs text-gray-400 hover:text-gray-500 dark:text-white/40 dark:hover:text-white/70 transition-colors duration-100 {buttonClassName}"
+						class="group flex flex-1 h-full items-center gap-1.5 text-left text-[11px] font-medium uppercase tracking-wider text-gray-400 hover:text-gray-600 dark:text-white/35 dark:hover:text-white/60 transition-colors duration-100 {buttonClassName}"
 						aria-expanded={open}
 						aria-controls="{id}-content"
 						on:pointerup|stopPropagation
@@ -148,7 +148,7 @@
 					{#if onAdd}
 						<button
 							type="button"
-							class="flex items-center justify-center w-7 h-7 rounded-lg text-gray-300 hover:text-gray-500 dark:text-gray-600 dark:hover:text-gray-400 transition-colors duration-100"
+							class="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100/70 dark:text-white/40 dark:hover:text-white/70 dark:hover:bg-white/[0.06] transition-colors duration-100"
 							aria-label={onAddLabel}
 							on:pointerup={(e) => {
 								e.stopPropagation();

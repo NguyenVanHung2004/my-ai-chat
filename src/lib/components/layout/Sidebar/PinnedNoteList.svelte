@@ -1,4 +1,4 @@
-<script>
+﻿<script>
 	import Sortable from 'sortablejs';
 
 	import { onMount, getContext, tick } from 'svelte';
@@ -63,7 +63,7 @@
 	{#each sortedPinnedNotes as note (note.id)}
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="flex items-center text-gray-800 dark:text-gray-200 cursor-grab relative group rounded-xl px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+			class="flex items-center text-gray-800 dark:text-gray-200 cursor-grab relative group rounded-xl px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-white/[0.05] transition"
 			data-id={note.id}
 		>
 			<a
@@ -86,7 +86,7 @@
 				</div>
 			</a>
 			<button
-				class="invisible group-hover:visible self-center p-0.5 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition"
+				class="invisible group-hover:visible self-center p-0.5 hover:bg-gray-200 dark:hover:bg-white/[0.07] rounded-lg transition"
 				on:click|preventDefault|stopPropagation={async () => {
 					await toggleNotePinnedStatusById(localStorage.token, note.id);
 					const _pinnedNotes = await getPinnedNoteList(localStorage.token).catch(() => []);
