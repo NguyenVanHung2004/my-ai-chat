@@ -1894,7 +1894,7 @@
 								</div>
 							</div>
 
-							<div class=" flex justify-between mt-0.5 mb-2 mx-0.5 max-w-full" dir="ltr">
+							<div class=" flex flex-col md:flex-row md:justify-between mt-0.5 mb-2 mx-0.5 max-w-full" dir="ltr">
 								<div class="ml-1 self-end flex items-center flex-1 min-w-0">
 									<InputMenu
 										bind:files
