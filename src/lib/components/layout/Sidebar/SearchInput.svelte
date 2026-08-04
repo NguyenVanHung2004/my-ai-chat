@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { getAllTags } from '$lib/apis/chats';
 	import { folders, tags } from '$lib/stores';
 	import { getContext, createEventDispatcher, onMount, onDestroy, tick } from 'svelte';
@@ -308,7 +308,7 @@
 	{#if focused && (filteredOptions.length > 0 || filteredItems.length > 0)}
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="absolute top-0 mt-8 left-0 right-1 border border-white/[0.1] dark:glass-strong bg-gray-50/95 rounded-2xl z-10 shadow-glass"
+			class="absolute top-0 mt-8 left-0 right-1 border border-white/[0.1] glass-strong bg-gray-50/95 rounded-2xl z-10 shadow-glass"
 			id="search-options-container"
 			in:fade={{ duration: 50 }}
 			on:mouseenter={() => {

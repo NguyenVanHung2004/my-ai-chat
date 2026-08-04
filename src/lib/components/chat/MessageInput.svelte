@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import DOMPurify from 'dompurify';
 	import { toast } from 'svelte-sonner';
 
@@ -903,7 +903,7 @@
 				}
 
 				const compressImageHandler = async (imageUrl, settings = {}, config = {}) => {
-					// Quick shortcut so we don’t do unnecessary work.
+					// Quick shortcut so we donâ€™t do unnecessary work.
 					const settingsCompression = settings?.imageCompression ?? false;
 					const configWidth = config?.file?.image_compression?.width ?? null;
 					const configHeight = config?.file?.image_compression?.height ?? null;
@@ -1083,7 +1083,7 @@
 					return;
 				}
 			} catch (_) {
-				// Not valid JSON — fall through to file handling
+				// Not valid JSON â€” fall through to file handling
 			}
 		}
 
@@ -1277,7 +1277,7 @@
 				char: ':',
 				allowSpaces: false,
 				command: ({ editor, range, props }) => {
-					// Convert the Unicode hex codepoint (e.g. "1F44B") to the actual emoji character (👋)
+					// Convert the Unicode hex codepoint (e.g. "1F44B") to the actual emoji character (ðŸ‘‹)
 					const codepoint = props.id;
 					const emoji = String.fromCodePoint(parseInt(codepoint, 16));
 					editor.chain().focus().deleteRange(range).insertContent(emoji).run();
@@ -1586,7 +1586,7 @@
 							id="message-input-container"
 							class="flex-1 flex flex-col relative w-full rounded-3xl {$temporaryChatEnabled
 								? 'border-dashed border-gray-100 dark:border-white/20'
-								: 'dark:input-glass bg-white/10 border border-gray-100/40'} transition px-0.5 dark:text-gray-100"
+								: 'input-glass bg-white/10 border border-gray-100/40'} transition px-0.5 dark:text-gray-100"
 							dir={$settings?.chatDirection ?? 'auto'}
 						>
 							{#if atSelectedModel !== undefined}

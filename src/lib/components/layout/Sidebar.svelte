@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { toast } from 'svelte-sonner';
 	import { v4 as uuidv4 } from 'uuid';
 	import Sortable from 'sortablejs';
@@ -105,7 +105,7 @@
 
 	// Keep the optimistic sidebar highlight in sync with the active chat. Leaving the
 	// chat view (e.g. navigating to an admin page) clears chatId, and programmatic
-	// navigation such as cloning moves chatId to a different chat — in both cases the
+	// navigation such as cloning moves chatId to a different chat â€” in both cases the
 	// previously-selected item must not stay highlighted. The optimistic on-click
 	// highlight is preserved because a click sets selectedChatId without changing
 	// chatId, so this reactive only re-runs once chatId catches up to the same value.
@@ -1110,7 +1110,7 @@
 		role="navigation"
 		aria-label={$i18n.t('Chat history')}
 		class="h-screen max-h-[100dvh] min-h-screen select-none {$showSidebar
-			? `${$mobile ? 'bg-gray-50 dark:bg-gray-950' : 'bg-white/40 dark:sidebar-glass'} z-50`
+			? `${$mobile ? 'bg-gray-50 dark:bg-gray-950' : 'bg-white/40 sidebar-glass'} z-50`
 			: ' bg-transparent z-0 '} {$isApp
 			? `ml-[4.5rem] md:ml-0 `
 			: ' transition-all duration-300 '} shrink-0 text-gray-700 dark:text-gray-300 text-[13px] leading-5 fixed top-0 left-0 overflow-x-hidden

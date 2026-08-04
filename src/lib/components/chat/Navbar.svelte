@@ -83,7 +83,7 @@
 		? 'pt-1.5'
 		: 'pt-0.5'} pb-1 -mb-12 flex flex-col items-center drag-region"
 >
-	<div class="flex items-center w-full {$mobile ? 'px-2.5' : 'mx-2 px-1.5 pr-1 rounded-2xl dark:navbar-glass'}">
+	<div class="flex items-center w-full {$mobile ? 'px-2.5' : 'mx-2 px-1.5 pr-1 rounded-2xl navbar-glass'}">
 		<div
 			id="navbar-bg-gradient-to-b"
 			class="{chat?.id

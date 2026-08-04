@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
 	import { marked } from 'marked';
 	import DOMPurify from 'dompurify';
@@ -86,7 +86,7 @@
 			class=" mt-2 mb-4 text-4xl md:text-5xl text-gray-800 dark:text-gray-100 text-left flex items-center gap-4"
 		>
 			<div>
-				<div class=" capitalize line-clamp-1 dark:hero-title" in:fade={{ duration: 200 }}>
+				<div class=" capitalize line-clamp-1 hero-title" in:fade={{ duration: 200 }}>
 					{#if models[selectedModelIdx]?.name}
 						{models[selectedModelIdx]?.name}
 					{:else}
