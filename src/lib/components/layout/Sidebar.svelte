@@ -1632,22 +1632,22 @@
 				<div
 					class=" sidebar-bg-gradient-to-t bg-linear-to-t from-gray-50 dark:from-[#06060a]/80 to-transparent from-50% pointer-events-none absolute inset-0 -z-10 -mt-6"
 				></div>
-				<div class="flex flex-col">
+				<div class="flex flex-col pt-1.5">
 					<div class="px-1 flex justify-center text-gray-700 dark:text-gray-300">
 						<a
 							id="sidebar-new-chat-button"
-							class="group grow flex items-center space-x-2 rounded-xl px-2 py-1.5 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition outline-none"
+							class="group grow flex items-center space-x-2.5 rounded-xl px-3 py-2.5 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition outline-none"
 							href="/"
 							draggable="false"
 							on:click={newChatHandler}
 							aria-label={$i18n.t('New Chat')}
 						>
-							<div class="self-center flex size-4 shrink-0 items-center justify-center">
-								<EditPencilIcon className=" size-4" strokeWidth="1.5" />
+							<div class="self-center flex size-5 shrink-0 items-center justify-center">
+								<EditPencilIcon className=" size-5" strokeWidth="1.5" />
 							</div>
 
 							<div class="flex flex-1 self-center translate-y-[0.5px]">
-								<div class=" self-center text-[13px] leading-5">{$i18n.t('New Chat')}</div>
+								<div class=" self-center text-sm leading-5">{$i18n.t('New Chat')}</div>
 							</div>
 
 							<HotkeyHint name="newChat" className=" group-hover:visible invisible" />
@@ -1657,19 +1657,19 @@
 					<div class="px-1 flex justify-center text-gray-700 dark:text-gray-300">
 						<button
 							id="sidebar-search-button"
-							class="group grow flex items-center space-x-2 rounded-xl px-2 py-1.5 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition outline-none"
+							class="group grow flex items-center space-x-2.5 rounded-xl px-3 py-2.5 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition outline-none"
 							on:click={() => {
 								showSearch.set(true);
 							}}
 							draggable="false"
 							aria-label={$i18n.t('Search')}
 						>
-							<div class="self-center flex size-4 shrink-0 items-center justify-center">
-								<SearchIcon strokeWidth="1.5" className="size-4" />
+							<div class="self-center flex size-5 shrink-0 items-center justify-center">
+								<SearchIcon strokeWidth="1.5" className="size-5" />
 							</div>
 
 							<div class="flex flex-1 self-center translate-y-[0.5px]">
-								<div class=" self-center text-[13px] leading-5">{$i18n.t('Search')}</div>
+								<div class=" self-center text-sm leading-5">{$i18n.t('Search')}</div>
 							</div>
 							<HotkeyHint name="search" className=" group-hover:visible invisible" />
 						</button>
