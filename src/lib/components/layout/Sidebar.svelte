@@ -930,7 +930,7 @@
 
 {#if !$mobile && !$showSidebar}
 	<div
-		class=" w-[42px] shrink-0 py-1 px-1 flex flex-col justify-between text-gray-700 dark:text-gray-300 hover:bg-gray-50/30 dark:hover:bg-white/[0.04] h-full z-10 transition-all border-e-[0.5px] border-gray-50 dark:border-white/[0.06]"
+		class=" w-[42px] shrink-0 py-1 px-1 flex flex-col justify-between text-gray-700 dark:text-gray-300 hover:bg-gray-50/30 dark:hover:bg-white/[0.04] h-full z-10 transition-all border-e-[0.5px] border-gray-200/80 dark:border-white/[0.06]"
 		id="sidebar"
 		role="navigation"
 		aria-label={$i18n.t('Chat history')}
@@ -1119,7 +1119,7 @@
 		data-state={$showSidebar}
 	>
 		<div
-			class=" my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[var(--sidebar-width)] overflow-x-hidden scrollbar-hidden z-50 border-e border-gray-50 dark:border-white/[0.08] {$showSidebar
+			class=" my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[var(--sidebar-width)] overflow-x-hidden scrollbar-hidden z-50 border-e border-gray-200/80 dark:border-white/[0.08] {$showSidebar
 				? ''
 				: 'invisible'}"
 		>
