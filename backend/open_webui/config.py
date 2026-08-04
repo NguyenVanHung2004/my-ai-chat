@@ -138,6 +138,14 @@ if frontend_loader.exists():
     except Exception as e:
         logging.error(f'An error occurred: {e}')
 
+frontend_model_placeholder = FRONTEND_BUILD_DIR / 'static' / 'model-placeholder.svg'
+
+if frontend_model_placeholder.exists():
+    try:
+        shutil.copyfile(frontend_model_placeholder, STATIC_DIR / 'model-placeholder.svg')
+    except Exception as e:
+        logging.error(f'An error occurred: {e}')
+
 
 # --- Storage Provider ---
 
