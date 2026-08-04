@@ -1127,6 +1127,27 @@ html.high-contrast:not(.dark) .shimmer {
 		0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* ---- assistant (AI) message bubble ---- */
+.assistant-bubble {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.55));
+	border: 1px solid rgba(60, 40, 120, 0.1);
+	-webkit-backdrop-filter: blur(24px) saturate(160%);
+	backdrop-filter: blur(24px) saturate(160%);
+	border-radius: 20px;
+	padding: 0.75rem 1rem;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.95),
+		0 4px 16px rgba(60, 40, 120, 0.06);
+}
+
+.dark .assistant-bubble {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+	border: 1px solid rgba(255, 255, 255, 0.09);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.1),
+		0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* ---- hero title ---- */
 .hero-title {
 	background: linear-gradient(120deg, #6d28d9, #a855f7 55%, #7c3aed);

@@ -809,7 +809,9 @@
 
 						<div
 							bind:this={contentContainerElement}
-							class="w-full flex flex-col relative {edit ? 'hidden' : ''}"
+							class="w-full flex flex-col relative {compactPreview ? '' : 'assistant-bubble'} {edit
+								? 'hidden'
+								: ''}"
 							id="response-content-container"
 						>
 							{#if !hasResponseContent && !message.done && !message.error && !hasVisibleStatus}
