@@ -1165,96 +1165,103 @@
 		// Initialize i18n even if we didn't get a backend config,
 		// so `/error` can show something that's not `undefined`.
 
-		initI18n(localStorage?.locale);
-		if (!localStorage.locale) {
-			const languages = await getLanguages();
-			const browserLanguages = navigator.languages
-				? navigator.languages
-				: [navigator.language || navigator.userLanguage];
-			const lang = backendConfig?.default_locale
-				? backendConfig.default_locale
-				: bestMatchingLanguage(languages, browserLanguages, 'en-US');
-			changeLanguage(lang);
-			dayjs.locale(lang);
-		}
+		try {
+			initI18n(localStorage?.locale);
+			if (!localStorage.locale) {
+				const languages = await getLanguages();
+				const browserLanguages = navigator.languages
+					? navigator.languages
+					: [navigator.language || navigator.userLanguage];
+				const lang = backendConfig?.default_locale
+					? backendConfig.default_locale
+					: bestMatchingLanguage(languages, browserLanguages, 'en-US');
+				changeLanguage(lang);
+				dayjs.locale(lang);
+			}
 
-		if (backendConfig) {
-			// Save Backend Status to Store
-			await config.set(backendConfig);
-			await WEBUI_NAME.set(backendConfig.name);
+			if (backendConfig) {
+				// Save Backend Status to Store
+				await config.set(backendConfig);
+				await WEBUI_NAME.set(backendConfig.name);
 
-			if ($config) {
-				await setupSocket($config.features?.enable_websocket ?? true);
+				if ($config) {
+					await setupSocket($config.features?.enable_websocket ?? true);
 
-				if (localStorage.token) {
-					// Get Session User Info
-					const sessionUser = await getSessionUser(localStorage.token).catch((error) => {
-						toast.error(`${error}`);
-						return null;
-					});
+					if (localStorage.token) {
+						// Get Session User Info
+						const sessionUser = await getSessionUser(localStorage.token).catch((error) => {
+							toast.error(`${error}`);
+							return null;
+						});
 
-					if (sessionUser) {
-						await user.set(sessionUser);
-						try {
-							await config.set(await getBackendConfig());
-						} catch (error) {
-							console.error('Error refreshing backend config:', error);
+						if (sessionUser) {
+							await user.set(sessionUser);
+							try {
+								await config.set(await getBackendConfig());
+							} catch (error) {
+								console.error('Error refreshing backend config:', error);
+							}
+
+							// Keep user timezone in sync on every app load/refresh
+							const timezone = getUserTimezone();
+							if (timezone) {
+								updateUserTimezone(localStorage.token, timezone);
+							}
+
+							// Relay auth token to desktop app for API access
+							if (window.electronAPI?.send) {
+								window.electronAPI
+									.send({
+										type: 'token:update',
+										token: localStorage.token
+									})
+									.catch(() => {});
+							}
+						} else {
+							localStorage.removeItem('token');
+							await user.set(null);
 						}
-
-						// Keep user timezone in sync on every app load/refresh
-						const timezone = getUserTimezone();
-						if (timezone) {
-							updateUserTimezone(localStorage.token, timezone);
-						}
-
-						// Relay auth token to desktop app for API access
-						if (window.electronAPI?.send) {
-							window.electronAPI
-								.send({
-									type: 'token:update',
-									token: localStorage.token
-								})
-								.catch(() => {});
-						}
-					} else {
-						localStorage.removeItem('token');
-						await user.set(null);
 					}
 				}
+			} else {
+				// Redirect to /error when Backend Not Detected
+				await goto(`/error`);
 			}
-		} else {
-			// Redirect to /error when Backend Not Detected
-			await goto(`/error`);
-		}
 
-		await tick();
+			await tick();
 
-		if (
-			document.documentElement.classList.contains('her') &&
-			document.getElementById('progress-bar')
-		) {
-			loadingProgress.subscribe((value) => {
-				const progressBar = document.getElementById('progress-bar');
+			if (
+				document.documentElement.classList.contains('her') &&
+				document.getElementById('progress-bar')
+			) {
+				loadingProgress.subscribe((value) => {
+					const progressBar = document.getElementById('progress-bar');
 
-				if (progressBar) {
-					progressBar.style.width = `${value}%`;
-				}
-			});
+					if (progressBar) {
+						progressBar.style.width = `${value}%`;
+					}
+				});
 
-			await loadingProgress.set(100);
+				await loadingProgress.set(100);
 
-			document.getElementById('splash-screen')?.remove();
+				document.getElementById('splash-screen')?.remove();
 
-			const audio = new Audio(`/audio/greeting.mp3`);
-			const playAudio = () => {
-				audio.play();
-				document.removeEventListener('click', playAudio);
-			};
+				const audio = new Audio(`/audio/greeting.mp3`);
+				const playAudio = () => {
+					audio.play();
+					document.removeEventListener('click', playAudio);
+				};
 
-			document.addEventListener('click', playAudio);
+				document.addEventListener('click', playAudio);
 
-			loaded = true;
-		} else {
+				loaded = true;
+			} else {
+				document.getElementById('splash-screen')?.remove();
+				loaded = true;
+			}
+		} catch (error) {
+			console.error('Error during app initialization:', error);
+		} finally {
 			document.getElementById('splash-screen')?.remove();
 			loaded = true;
 		}
